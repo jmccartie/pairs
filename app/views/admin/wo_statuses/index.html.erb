@@ -1,0 +1,19 @@
+<h1>Work Order Statuses</h1>
+
+<table>
+  <tr>
+	<th></th>
+    <th></th>
+  </tr>
+
+<% @wo_statuses.each do |wo_status| %>
+  <tr>
+	<td><%= wo_status.status %></td>
+    <td><%= link_to 'X', [:admin, wo_status], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Status', new_admin_wo_status_path %>

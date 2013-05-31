@@ -1,0 +1,31 @@
+LOG:  database system was shut down at 2013-05-09 12:41:27 CDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "servemore_dev" does not exist
+FATAL:  database "servemore_test" does not exist
+ERROR:  value "4053177207" is out of range for type integer
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  value "4053177207" is out of range for type integer
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  invalid input syntax for integer: ""
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  value "4053177207" is out of range for type integer
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  value "4053177207" is out of range for type integer
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  invalid input syntax for integer: ""
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  value "4053177207" is out of range for type integer
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  invalid input syntax for integer: ""
+STATEMENT:  INSERT INTO "work_orders" ("address_id", "created_at", "email", "first_name", "last_name", "phone", "updated_at", "waiver_id", "wo_status_id", "zone_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"
+ERROR:  column "phone" cannot be cast automatically to type integer
+HINT:  Specify a USING expression to perform the conversion.
+STATEMENT:  ALTER TABLE "work_orders" ALTER COLUMN "phone" TYPE integer
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 84101) running in data directory "/usr/local/var/postgres"?
+ERROR:  column "phone" cannot be cast automatically to type integer
+HINT:  Specify a USING expression to perform the conversion.
+STATEMENT:  ALTER TABLE "work_orders" ALTER COLUMN "phone" TYPE integer
+ERROR:  relation "users" does not exist
+STATEMENT:  ALTER TABLE "users" DROP "first_name"

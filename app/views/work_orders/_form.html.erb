@@ -1,0 +1,57 @@
+<%= simple_form_for(@work_order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :zone %>
+	<%= f.simple_fields_for :affected do |a| %>
+		<%= a.simple_fields_for :contact do |c| %>
+			<%= c.input :first_name %>
+			<%= c.input :last_name %>
+			<%= c.input :email %>
+			<%= c.input :phone %>
+			<%= c.simple_fields_for :address do |a| %>
+			<div class="control-group">
+				<label>Address</label>
+				<div class="input-append">
+				  <%= a.input_field :address, :class => "location" %>
+				  <button class="btn" type="button" id="locate-me"><i class="icon-location-arrow"></i></button>
+				</div>
+				<%= a.input :latitude, :as => :hidden %>
+				  <%= a.input :longitude, :as => :hidden %>
+			</div>
+			<% end %>
+		<% end %>
+	<% end %>
+    <%= f.association :wo_status %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script>  
+        jQuery(window).ready(function(){  
+            jQuery("#locate-me").click(initiate_geolocation);  
+        });  
+        function initiate_geolocation() {  
+            navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+        }
+		function handle_errors(error)  
+		        {  
+		            switch(error.code)  
+		            {  
+		                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
+		                break;  
+		                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
+		                break;  
+		                case error.TIMEOUT: alert("retrieving position timed out");  
+		                break;  
+		                default: alert("unknown error");  
+		                break;  
+		            }  
+		        }
+        function handle_geolocation_query(position){
+			$.get("/geocode", { lat: position.coords.latitude, long: position.coords.longitude }).done(function(data) {});
+        }  
+    </script>

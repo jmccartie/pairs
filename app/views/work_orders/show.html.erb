@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<div id='map'></div>
+<script>
+    var map = L.mapbox.map('map', 'waynenabors.map-cns6xuy2');
+	map.markerLayer.loadURL('http://servemoore.dev/work_orders/map.json');
+</script>
+
+<p>
+  <b>Zone:</b>
+  <%= @work_order.zone.zone %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @work_order.affected.contact.address.address %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @work_order.affected.contact.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @work_order.affected.contact.last_name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @work_order.affected.contact.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @work_order.affected.contact.email %>
+</p>
+
+<p>
+  <b>Waiver:</b>
+  <%= @work_order.waiver_id %>
+</p>
+
+<p>
+  <b>Wo status:</b>
+  <%= @work_order.wo_status_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_work_order_path(@work_order) %> |
+<%= link_to 'Back', work_orders_path %>

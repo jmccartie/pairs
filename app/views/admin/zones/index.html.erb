@@ -1,0 +1,19 @@
+<h1>Listing zones</h1>
+
+<table>
+  <tr>
+	<th></th>
+    <th></th>
+  </tr>
+
+<% @zones.each do |zone| %>
+  <tr>
+	<td><%= zone.zone %></td>
+    <td><%= link_to 'X', [:admin, zone], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Zone', new_admin_zone_path %>

@@ -1,0 +1,14 @@
+{
+    "type": "FeatureCollection",
+        "features": [
+		<% @work_orders.each do |w| %>
+		{
+			"type": "Feature",
+            "geometry": {"type": "Point", "coordinates": [<%= w.affected.contact.address.longitude %>, <%= w.affected.contact.address.latitude %>]},
+            "properties": {
+                "title": "<%= w.affected.contact.address.address %>"
+            }
+		}<%= w == @work_orders.last ? "" : "," %>
+		<% end %>
+    ]
+}
