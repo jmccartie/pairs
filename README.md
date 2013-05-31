@@ -7,7 +7,9 @@ This app __pairs__ the *needs* of tornado victims with the *resources* that peop
 
 We are looking people to volunteer their time and skills to build this app as quickly as possible. The current solution is using Google spreadsheets and it is not scaling very well as you might imagine. We need the basic functionality of this app up as quickly as possible to help coordinate the efforts in the disaster areas.
 
-If you are a developer who can help, please check the [issues page](http://github.com/servemoore/pairs/issues) and grab an issue that is labeled as __up for grabs__. Before you start on an issue, please leave a comment on that issue with a link to your fork. We will try to get the issue labeled __in progress__ so no one else duplicates your efforts. 
+If you are a developer who can help, please check the [issues page](http://github.com/servemoore/pairs/issues) and grab an issue that is labeled as __up for grabs__. Before you start on an issue, please leave a comment on that issue with a link to your fork. We will try to get the issue labeled __in progress__ so no one else duplicates your efforts. When your task is done just send a pull request and we'll get it reviewed, merged and deployed as soon as we can.
+
+__THANK YOU FOR YOUR HELP!__
 
 ### The Stack ###
 * Rails 3
