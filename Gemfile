@@ -1,19 +1,16 @@
 source 'https://rubygems.org'
+gem 'rails', '~> 3.2.9'
 
-gem 'rails', '3.2.9'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# gem 'sqlite3'
-gem 'pg'
-gem 'simple_form'
-gem 'nested_form'
-gem 'geocoder'
-gem 'gmaps4rails'
 gem "sorcery"
+gem 'pg', '~> 0.15.1'
+gem 'simple_form', '~> 2.1.0'
+gem 'nested_form', '~> 0.3.2'
+gem 'geocoder', '~> 1.1.8'
+gem 'gmaps4rails'
 
 
+# Use unicorn as the app server
+gem 'unicorn', '~> 4.6.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,19 +25,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.0.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
