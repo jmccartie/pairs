@@ -1,31 +1,42 @@
+<div id="needs_wrapper" class="map-large">
 <%= gmaps4rails(@map) %>
-<div id="map_space">
+
+<div id="needs">
 	
-</div>
-<h1>Needs <%= link_to 'New', new_work_order_path, :class => "btn" %></h1>
-<table class="table">
+<h1>Needs <%= link_to 'New', new_work_order_path, :class => "btn" %> <a href="#" id="toggle_map" class="btn btn-small btn-inverse pull-right"><i class="icon-resize-full"></i></a></h1>
+<table id="needs_table" class="table">
+  <thead>
   <tr>
-    <th>Zone</th>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Waiver</th>
-    <th>Wo status</th>
+	<th><%= sortable "created_at", "Date" %></th>
+    <th><%= sortable "zones.zone", "Zone" %></th>
+    <th>Contact</th>
+    <th><%= link_to 'Waiver', :sort => "Waiver" %></th>
+    <th><%= sortable "wo_statuses.status", "Status" %></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @work_orders.each do |work_order| %>
-  <tr>
+  <tr class="<%= work_order.wo_status.style ? work_order.wo_status.style : "" %>">
+	<td><%= work_order.created_at.strftime('%m/%d') %></td>
     <td><%= work_order.zone ? work_order.zone.zone : "?" %></td>
-    <td><%= work_order.affected.contact.name %></td>
-	<td><%= work_order.affected.contact.phone %></td>
-	<td><%= work_order.affected.contact.email %></td>
+    <td>
+		<strong><%= work_order.affected.contact.address.address %></strong><br/>
+		<%= work_order.affected.contact.name %><br/>
+		<%= work_order.affected.contact.phone %><br/>
+		<%= work_order.affected.contact.email %>
+	</td>
     <td><%= work_order.waiver_id %></td>
-    <td><%= work_order.wo_status_id %></td>
+    <td><%= work_order.wo_status ? work_order.wo_status.status : "" %></td>
     <td>
 		<%= link_to raw("<i class='icon-eye-open'></i>"), work_order %>
 		<%= link_to raw("<i class='icon-edit'></i>"), edit_work_order_path(work_order) %>
 	</td>
   </tr>
 <% end %>
+</tbody>
 </table>
+
+</div>
+
+</div> <!--END needs_wrapper -->

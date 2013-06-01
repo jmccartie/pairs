@@ -1,10 +1,11 @@
 class WorkOrdersController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_filter :require_login
   
   # GET /work_orders
   # GET /work_orders.json
   def index
-    @work_orders = WorkOrder.all
+    @work_orders = WorkOrder.includes(:wo_status, :zone, :affected => [:contact]).order(sort_column + ' ' + sort_direction).all
     
     @map = WorkOrder.includes(:affected => [{:contact => :address}]).all.to_gmaps4rails
 
@@ -96,5 +97,14 @@ class WorkOrdersController < ApplicationController
       format.html { redirect_to work_orders_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def sort_column
+    params[:sort] || "created_at"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
   end
 end

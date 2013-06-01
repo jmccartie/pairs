@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+
+$(function() {
+	// move later
+	$('#toggle_map').on('click', function(){ $('#needs_wrapper').toggleClass('map-large')})
+});

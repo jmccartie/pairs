@@ -22,7 +22,9 @@
 			<% end %>
 		<% end %>
 	<% end %>
-    <%= f.association :wo_status %>
+	<%= f.input :work_requested %>
+	<%= f.input :other_needs %>
+    <%= f.association :wo_status, label: "Status" %>
   </div>
 
   <div class="form-actions">

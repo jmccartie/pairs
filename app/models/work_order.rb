@@ -1,5 +1,5 @@
 class WorkOrder < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :phone, :waiver_id, :wo_status_id, :zone_id, :address_id, :affected_attributes, :waiver_attributes
+  attr_accessible :email, :first_name, :last_name, :phone, :waiver_id, :wo_status_id, :zone_id, :address_id, :affected_attributes, :waiver_attributes, :work_requested, :other_needs
   
   belongs_to :zone
   belongs_to :wo_status
@@ -18,7 +18,7 @@ class WorkOrder < ActiveRecord::Base
   end
   
   def gmaps4rails_infowindow
-    "#{self.affected.contact.address.address}"
+    "<a href='#{Rails.application.routes.url_helpers.work_order_path(self)}'>#{self.affected.contact.address.address}</a>"
   end
   
 end
