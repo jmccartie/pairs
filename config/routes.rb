@@ -2,7 +2,13 @@ Servemore::Application.routes.draw do
 
   get 'work_orders/map'
   resources :work_orders
-
+  
+  # Login
+  get "oauths/oauth"
+  get "oauths/callback"
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  get "logout" => "oauths#logout"
  
   namespace :admin do
     resources :zones

@@ -1,8 +1,12 @@
 class WorkOrdersController < ApplicationController
+  before_filter :require_login
+  
   # GET /work_orders
   # GET /work_orders.json
   def index
     @work_orders = WorkOrder.all
+    
+    @map = WorkOrder.includes(:affected => [{:contact => :address}]).all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,6 +26,7 @@ class WorkOrdersController < ApplicationController
   # GET /work_orders/1.json
   def show
     @work_order = WorkOrder.find(params[:id])
+    @map = @work_order.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb

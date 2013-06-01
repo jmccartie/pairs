@@ -10,6 +10,8 @@ gem 'pg'
 gem 'simple_form'
 gem 'nested_form'
 gem 'geocoder'
+gem 'gmaps4rails'
+gem "sorcery"
 
 
 

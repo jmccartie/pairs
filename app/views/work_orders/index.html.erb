@@ -1,31 +1,31 @@
+<%= gmaps4rails(@map) %>
+<div id="map_space">
+	
+</div>
 <h1>Needs <%= link_to 'New', new_work_order_path, :class => "btn" %></h1>
-
 <table class="table">
   <tr>
     <th>Zone</th>
-    <th>First name</th>
-    <th>Last name</th>
+    <th>Name</th>
     <th>Phone</th>
     <th>Email</th>
     <th>Waiver</th>
     <th>Wo status</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @work_orders.each do |work_order| %>
   <tr>
-    <td><%= work_order.zone.zone %></td>
-    <td><%= work_order.affected.contact.first_name %></td>
-	<td><%= work_order.affected.contact.last_name %></td>
+    <td><%= work_order.zone ? work_order.zone.zone : "?" %></td>
+    <td><%= work_order.affected.contact.name %></td>
 	<td><%= work_order.affected.contact.phone %></td>
 	<td><%= work_order.affected.contact.email %></td>
     <td><%= work_order.waiver_id %></td>
     <td><%= work_order.wo_status_id %></td>
-    <td><%= link_to 'Show', work_order %></td>
-    <td><%= link_to 'Edit', edit_work_order_path(work_order) %></td>
-    <td><%= link_to 'Destroy', work_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+		<%= link_to raw("<i class='icon-eye-open'></i>"), work_order %>
+		<%= link_to raw("<i class='icon-edit'></i>"), edit_work_order_path(work_order) %>
+	</td>
   </tr>
 <% end %>
 </table>

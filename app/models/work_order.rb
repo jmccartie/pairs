@@ -6,4 +6,19 @@ class WorkOrder < ActiveRecord::Base
   has_one :waiver
   has_one :affected
   accepts_nested_attributes_for :affected
+  
+  acts_as_gmappable :process_geocoding => false
+  
+  def latitude
+    "#{self.affected.contact.address.latitude}"
+  end
+  
+  def longitude
+    "#{self.affected.contact.address.longitude}"
+  end
+  
+  def gmaps4rails_infowindow
+    "#{self.affected.contact.address.address}"
+  end
+  
 end

@@ -1,29 +1,15 @@
+<%= gmaps4rails(@map) %>
+<div id="map_space"></div>
+
 <p id="notice"><%= notice %></p>
-
-<div id='map'></div>
-<script>
-    var map = L.mapbox.map('map', 'waynenabors.map-cns6xuy2');
-	map.markerLayer.loadURL('http://servemoore.dev/work_orders/map.json');
-</script>
-
-<p>
-  <b>Zone:</b>
-  <%= @work_order.zone.zone %>
-</p>
-
-<p>
-  <b>Address:</b>
+<h2>
   <%= @work_order.affected.contact.address.address %>
-</p>
+  <span class="badge badge-important">Zone <%= @work_order.zone ? @work_order.zone.zone : "?"  %></span>
+</h2>
 
 <p>
-  <b>First name:</b>
-  <%= @work_order.affected.contact.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @work_order.affected.contact.last_name %>
+  <b>Name:</b>
+  <%= @work_order.affected.contact.name %>
 </p>
 
 <p>
