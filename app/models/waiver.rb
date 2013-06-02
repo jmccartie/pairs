@@ -1,5 +1,9 @@
 class Waiver < ActiveRecord::Base
-  attr_accessible :address_id, :completed
+  attr_accessible :contact_attributes, :special_instructions
   
-  belongs_to :address
+  has_one :work_order
+  
+  has_one :contact, :as => :contactable
+  accepts_nested_attributes_for :contact
+  
 end

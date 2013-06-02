@@ -16,6 +16,7 @@
  */
 #needs_wrapper #needs {
 	height: 70%;
+	-webkit-transition: height 1s;
 }
 #needs_wrapper div.map_container {
 	position: absolute;
@@ -23,6 +24,7 @@
 	left: 0;
 	width: 100%;
 	height: 30%;
+	-webkit-transition: height 1s;
 	z-index: -1;
 }
 #needs_wrapper #map {
@@ -59,4 +61,43 @@ div.map_container {
 	right: 0;
 	width: 100%;
 	background-color: white;
+}
+
+/* Waivers */
+body.waivers {
+  background-color: #333;
+  padding: 5px;
+}
+
+body.waivers header {
+  display: none;
+}
+
+body.waivers article {
+	background-color: white;
+	margin-top: 15px;
+	padding: 15px;
+	-moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
+	-webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
+}
+
+body.waivers form label, body.waivers form input {
+	text-transform: capitalize;
+	margin-left: 5px;
+}
+body.waivers form textarea {
+	margin-left: 5px;
+	max-width: 400px;
+	width: 90%;
+	height: 100px;
+}
+
+body.waivers footer {
+	margin-top: 15px;
+	background-color: #ccc;
+}
+
+body.waivers span.address, body.waivers span.name {
+	font-weight: bold;
 }

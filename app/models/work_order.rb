@@ -3,7 +3,7 @@ class WorkOrder < ActiveRecord::Base
   
   belongs_to :zone
   belongs_to :wo_status
-  has_one :waiver
+  belongs_to :waiver
   has_one :affected
   accepts_nested_attributes_for :affected
   

@@ -1,6 +1,10 @@
 <ul class="nav">
 	<li class="pull-right"><%= link_to raw('<i class="icon-print"></i>'), root_path, :class => "btn" %></li>
-	<li class="pull-right"><%= link_to 'View Waiver', root_path, :class => "btn" %></li>
+	<% if @work_order.waiver %>
+	<li class="pull-right"><%= link_to 'View Waiver', work_order_waiver_path(@work_order), :class => "btn" %></li>
+	<% else %>
+	<li class="pull-right"><%= link_to 'Create Waiver', new_work_order_waiver_path(@work_order), :class => "btn" %></li>
+	<% end %>
 	<li class="pull-right"><%= link_to 'Edit', edit_work_order_path(@work_order), :class => "btn"  %></li>
 </ul>
 <br/>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601211945) do
+ActiveRecord::Schema.define(:version => 20130602014353) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -64,8 +64,9 @@ ActiveRecord::Schema.define(:version => 20130601211945) do
   create_table "waivers", :force => true do |t|
     t.integer  "address_id"
     t.boolean  "completed"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.text     "special_instructions"
   end
 
   create_table "wo_statuses", :force => true do |t|

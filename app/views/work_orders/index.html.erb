@@ -10,9 +10,8 @@
 	<th><%= sortable "created_at", "Date" %></th>
     <th><%= sortable "zones.zone", "Zone" %></th>
     <th>Contact</th>
-    <th><%= link_to 'Waiver', :sort => "Waiver" %></th>
+    <th><%= sortable 'waiver_id', "Waiver" %></th>
     <th><%= sortable "wo_statuses.status", "Status" %></th>
-    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -21,17 +20,13 @@
 	<td><%= work_order.created_at.strftime('%m/%d') %></td>
     <td><%= work_order.zone ? work_order.zone.zone : "?" %></td>
     <td>
-		<strong><%= work_order.affected.contact.address.address %></strong><br/>
+		<strong><%= link_to work_order.affected.contact.address.address, work_order %></strong><br/>
 		<%= work_order.affected.contact.name %><br/>
 		<%= work_order.affected.contact.phone %><br/>
 		<%= work_order.affected.contact.email %>
 	</td>
-    <td><%= work_order.waiver_id %></td>
+    <td><%= work_order.waiver ? raw("<i class='icon-check'></i>") : raw("<i class='icon-check-empty'></i>") %></td>
     <td><%= work_order.wo_status ? work_order.wo_status.status : "" %></td>
-    <td>
-		<%= link_to raw("<i class='icon-eye-open'></i>"), work_order %>
-		<%= link_to raw("<i class='icon-edit'></i>"), edit_work_order_path(work_order) %>
-	</td>
   </tr>
 <% end %>
 </tbody>

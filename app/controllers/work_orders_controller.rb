@@ -1,6 +1,7 @@
 class WorkOrdersController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :require_login
+  #before_filter :require_login
   
   # GET /work_orders
   # GET /work_orders.json

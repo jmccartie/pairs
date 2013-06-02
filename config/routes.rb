@@ -1,7 +1,9 @@
 Servemore::Application.routes.draw do
 
   get 'work_orders/map'
-  resources :work_orders
+  resources :work_orders do
+    resource :waiver
+  end
   
   # Login
   get "oauths/oauth"

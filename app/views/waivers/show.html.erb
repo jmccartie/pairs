@@ -1,0 +1,22 @@
+<div class="nav">
+	<%= link_to 'Back', @waiver.work_order, :class => "btn btn-inverse" %>
+</div>
+<article>
+	<h1>Release Form</h1>
+
+	<p>
+		I <span class="name"><%= @waiver.contact.name %></span> am the owner of the property at <span class="address"><%= @waiver.contact.address.address %></span>
+	</p>
+
+	<%= render :partial => 'disclaimer' %>
+
+	<h4>Special Instructions</h4>
+	<p>
+		<%= @waiver.special_instructions %><br/>
+		<%= Date.today %><br/>
+		Signature
+	</p>
+</article>
+<footer>
+	
+</footer>

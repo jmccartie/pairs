@@ -1,0 +1,33 @@
+
+<footer>
+	<%= simple_form_for @waiver, :url => work_order_waiver_path(@work_order.id), :html => {:class => 'form-inline' } do |f| %>
+	  <%= f.error_notification %>
+	<div class="form-actions">
+		<%= link_to 'Back', @work_order, :class => "btn btn-inverse" %>
+		<a href="#" class="btn btn-danger" data-toggle="collapse" data-target="#demo">Edit Homeowner Info</a>
+	    <%= f.button :submit, :class => "btn-primary" %>
+	 </div>
+	<%= f.input :special_instructions %>
+	<div id="demo" class="collapse">
+		<div class="form-inputs">
+		<%= f.simple_fields_for :contact do |c| %>
+			<%= c.input :first_name %>
+			<%= c.input :last_name %>
+			<%= c.input :email %>
+			<%= c.input :phone %>
+			<%= c.simple_fields_for :address do |a| %>
+			<div class="control-group">
+				<label>Address</label>
+				<div class="controls">
+				  <%= a.input_field :address, :class => "location" %>
+				</div>
+				<%= a.input :latitude, :as => :hidden %>
+				  <%= a.input :longitude, :as => :hidden %>
+			</div>
+			<% end %>
+		<% end %>
+		</div>
+	</div>
+	  
+	<% end %>
+</footer>
