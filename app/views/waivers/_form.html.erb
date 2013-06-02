@@ -8,18 +8,18 @@
 	    <%= f.button :submit, :class => "btn-primary" %>
 	 </div>
 	<%= f.input :special_instructions %>
-	<div id="demo" class="collapse">
+	<div id="demo" class="collapse in">
 		<div class="form-inputs">
 		<%= f.simple_fields_for :contact do |c| %>
-			<%= c.input :first_name %>
-			<%= c.input :last_name %>
-			<%= c.input :email %>
-			<%= c.input :phone %>
+			<%= c.input :first_name, :input_html => { :value => @work_order.affected.contact.first_name } %>
+			<%= c.input :last_name, :input_html => { :value => @work_order.affected.contact.last_name } %>
+			<%= c.input :email, :input_html => { :value => @work_order.affected.contact.email }  %>
+			<%= c.input :phone, :input_html => { :value => @work_order.affected.contact.phone } %>
 			<%= c.simple_fields_for :address do |a| %>
 			<div class="control-group">
 				<label>Address</label>
 				<div class="controls">
-				  <%= a.input_field :address, :class => "location" %>
+				  <%= a.input_field :address, :value => @work_order.affected.contact.address.address, :class => "location" %>
 				</div>
 				<%= a.input :latitude, :as => :hidden %>
 				  <%= a.input :longitude, :as => :hidden %>
@@ -31,3 +31,12 @@
 	  
 	<% end %>
 </footer>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+	$('#waiver_special_instructions').on('keyup', function() { $('div.special_instructions').html($('#waiver_special_instructions').val()) })
+	$('#waiver_contact_attributes_first_name').on('keyup', function(){ $('span.first_name').html($('#waiver_contact_attributes_first_name').val()) })
+	$('#waiver_contact_attributes_last_name').on('keyup', function(){ $('span.last_name').html($('#waiver_contact_attributes_last_name').val()) })
+	$('input.location').on('keyup', function(){ $('span.address').html($('input.location').val()) })
+});
+	
+</script>
