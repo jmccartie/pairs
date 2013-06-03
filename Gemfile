@@ -8,7 +8,6 @@ gem 'nested_form', '~> 0.3.2'
 gem 'geocoder', '~> 1.1.8'
 gem 'gmaps4rails'
 
-
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.6.2'
 
