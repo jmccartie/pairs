@@ -1,10 +1,11 @@
-<div id="needs_wrapper" class="map-large">
-<%= gmaps(:map_options => {},
-	:markers     => { "data" => @map },
-	:kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]'}
-)
-%>
-<div id="needs">
+<div id="map_wrapper">
+	<%= gmaps(:map_options => {},
+		:markers     => { "data" => @map },
+		:kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]'}
+	)
+	%>	
+</div><!-- map_wrapper -->
+<div id="needs_wrapper">
 	<div id="needs_toolbar">
 		<div class="table_filter">
 			<input type="text" id="needs_search" aria-controls="needs_table" placeholder="search">
@@ -41,5 +42,4 @@
 			</tbody>
 		</table>
 	</div><!-- main -->
-	</div><!-- needs -->
 </div> <!--END needs_wrapper -->
