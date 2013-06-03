@@ -1,16 +1,18 @@
 <%= link_to image_tag("pairs-logo.png", :class=>"logo"), root_path, :class => 'brand' %>
-
-<ul class="nav pull-right">
-	<% if current_user %>
-  <li class='<%= controller_name == "work_orders" ? "active" : "" %>'><%= link_to('Needs', work_orders_url) %></li>
-	<li class='<%= controller_name == "resources" ? "active" : "" %>'><%= link_to('Resources', work_orders_url) %></li>
-	<li class='<%= controller_name == "volunteers" ? "active" : "" %>'><%= link_to('Volunteers', work_orders_url) %></li>
-	<!-- Need if admin tag here --> 
-	<li class='<%= controller_name == "dashboard" ? "active" : "" %>'><%= link_to('Admin', admin_dashboard_url) %></li>
-	<!-- Need if admin tag here -->
-	<li class='<%= controller_name == "profile" ? "active" : "" %>'><%= link_to current_user.username, my_account_profile_path %></li>
-	<li><%= link_to raw('<i class="icon-signout"></i>'), logout_path %></li>
-	<% else %>
-	<li><%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %></li>
-	<% end %>
-</ul>
+<button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-reorder"></span></button>
+<div class="nav-collapse collapse" style="height: 0px; "> 
+	<ul class="nav pull-right">
+		<% if current_user %>
+	  <li class='<%= controller_name == "work_orders" ? "active" : "" %>'><%= link_to('Needs', work_orders_url) %></li>
+		<li class='<%= controller_name == "resources" ? "active" : "" %>'><%= link_to('Resources', work_orders_url) %></li>
+		<li class='<%= controller_name == "volunteers" ? "active" : "" %>'><%= link_to('Volunteers', work_orders_url) %></li>
+		<!-- Need if admin tag here --> 
+		<li class='<%= controller_name == "dashboard" ? "active" : "" %>'><%= link_to('Admin', admin_dashboard_url) %></li>
+		<!-- Need if admin tag here -->
+		<li class='<%= controller_name == "profile" ? "active" : "" %>'><%= link_to current_user.username, my_account_profile_path %></li>
+		<li><%= link_to raw('<i class="icon-signout"></i>'), logout_path %></li>
+		<% else %>
+		<li><%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %></li>
+		<% end %>
+	</ul>
+</div><!-- nav-collapse -->

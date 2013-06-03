@@ -852,6 +852,7 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 .invisible{visibility:hidden;}
 .affix{position:fixed;}
 /* Custom Bootstrap Ends */
+
 @import "bootstrap-responsive";
 
 /* Delete if doesn't break something 
@@ -859,6 +860,8 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 */
 
 /* Andrews magic starts here */
+.navbar-fixed-top {position:fixed !important;margin:0 !important;}
+.navbar-fixed-top .icon-reorder {color:#000;text-shadow:0 0 0 #fff;}
 body { padding-top: 40px;}
 #main .container {margin-top:40px;}
 #adminWrapper {padding:30px 0 0;}
