@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
+  before_create :set_role
 
   has_many :authentications, :dependent => :destroy
   has_one :contact, :as => :contactable
@@ -13,6 +14,11 @@ class User < ActiveRecord::Base
   
   def profile_complete?
     self.contact.present? && self.contact.first_name.present? && self.contact.last_name.present? && self.contact.email.present?
+  end
+  
+  private
+  def set_role
+    self.role ||= Role.where(:title => "Guest")
   end
   
 end
