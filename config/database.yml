@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  database: servemore_dev
+  pool: 5
+  username: wayne
+  password:
+      
+test:
+  adapter: postgresql
+  database: servemore_test
+  pool: 5
+  username: wayne
+  password:
+
+production:
+  adapter: postgresql
+  database: servemore_production
+  pool: 5
+  username: wayne
+  password:

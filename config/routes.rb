@@ -1,5 +1,13 @@
 Servemore::Application.routes.draw do
 
+  get "users/index"
+
+  get "users/show"
+
+  get "users/update"
+
+  get "users/delete"
+
   get 'work_orders/map'
   
   resources :work_orders do
