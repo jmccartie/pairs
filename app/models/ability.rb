@@ -7,7 +7,7 @@ class Ability
       if user.role_id > 1
         can :read, WorkOrder
       end
-      if user.role_id > 8
+      if user.role.title = "Super Admin"
         can :manage, :dashboard
         can :manage, :zone
         can :manage, :role
