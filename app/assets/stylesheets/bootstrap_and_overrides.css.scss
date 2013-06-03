@@ -2,17 +2,7 @@
 body { padding-top: 40px;}
 @import "bootstrap-responsive";
 
-.content {
-  background-color: #eee;
-  padding: 20px;
-  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
-}
+.content{background-color:#eee;padding:20px;margin:0 -20px;/* negative indent the amount of the padding to maintain the grid system */-webkit-border-radius:0 0 6px 6px;-moz-border-radius:0 0 6px 6px;border-radius:0 0 6px 6px;-webkit-box-shadow:0 1px 2px rgba(0,0,0,.15);-moz-box-shadow:0 1px 2px rgba(0,0,0,.15);box-shadow:0 1px 2px rgba(0,0,0,.15);}
 
 /* Andrews magic starts here */
 #adminWrapper {padding:30px 0 0;}
@@ -29,6 +19,7 @@ body { padding-top: 40px;}
 .carousel-caption h1,
 .carousel-caption .lead{margin:0;line-height:1.25;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.4);}
 .carousel-caption .btn{margin-top:10px;}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media (max-width:979px){.container.navbar-wrapper{margin-bottom:0;width:auto;}
