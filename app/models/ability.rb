@@ -12,6 +12,7 @@ class Ability
         can :manage, :zone
         can :manage, :role
         can :manage, :wo_status
+        can :manage, WorkOrder
       end
     end
   end
