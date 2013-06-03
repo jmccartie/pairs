@@ -16,3 +16,19 @@ input#needs_search {
 	background-color: #666;
 	color: white;
 }
+
+body.work_orders article {
+	margin: 15px;
+}
+
+@media print {
+	body.work_orders header {
+		display: none;
+	}
+	body.work_orders {
+		padding-top: 0;
+	}
+	body.work_orders .btn-group {
+		display: none;
+	}
+}
