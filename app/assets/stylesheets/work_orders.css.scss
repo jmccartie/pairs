@@ -1,3 +1,18 @@
 // Place all the styles related to the WorkOrders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#needs_toolbar {
+	background-color: #555;
+	color: white;
+	overflow: hidden;
+	padding: 5px;
+}
+div.table_filter {
+	width: 33%;
+	margin: 0 auto;
+}
+input#needs_search {
+	border: 1px solid #555;
+	background-color: #666;
+	color: white;
+}

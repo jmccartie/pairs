@@ -5,7 +5,7 @@
 	<h1>Release Form</h1>
 
 	<p>
-		I <span class="name"><%= @waiver.contact.name %></span> am the owner of the property at <span class="address"><%= @waiver.contact.address.address %></span>
+		I <span class="first_name"><%= @waiver.contact.first_name %></span> <span class="last_name"><%= @waiver.contact.last_name %></span> am the owner of the property at <span class="address"><%= @waiver.contact.address.address %></span>
 	</p>
 
 	<%= render :partial => 'disclaimer' %>
@@ -13,10 +13,30 @@
 	<h4>Special Instructions</h4>
 	<p>
 		<%= @waiver.special_instructions %><br/>
-		<%= Date.today %><br/>
-		Signature
+		<strong>Date:</strong> <%= Date.today %><br/>
 	</p>
+	<p><br/></p>
+	<div class="sigPad signed">
+		<div class="sigWrapper">
+			<canvas class="pad" width="425" height="125"></canvas>
+		</div>
+	</div>
+	<center>Signature</center>
 </article>
 <footer>
 	
 </footer>
+<script type="text/javascript" charset="utf-8">
+	$(function() {
+		$('.sigPad').signaturePad({
+			drawOnly : 'true',
+			penColour : "#333",
+			lineColour : '#ccc',
+			lineTop : 100,
+			output : ".signature",
+			clear : ".clearButton"
+		});
+		var sig = <%= @waiver.signature.gsub('"',"") %>
+		  $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
+	});
+</script>

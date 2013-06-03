@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.signaturepad.min
+//= require json2.min
+//= require dataTables/jquery.dataTables
 //= require_tree .
 
 

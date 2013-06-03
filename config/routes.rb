@@ -18,6 +18,10 @@ Servemore::Application.routes.draw do
     get '/' => 'dashboard#index', :as => 'dashboard'
   end
   
+  namespace :my_account do
+    resource "profile", :controller => "profile", :only => [:show, :edit, :update]
+  end
+  
   get 'geocode' => 'home#geocode'
   
   root :to => "home#index"

@@ -1,18 +1,28 @@
 <div id="needs_wrapper" class="map-large">
-<%= gmaps4rails(@map) %>
+<%= gmaps(:map_options => {},
+          :markers     => { "data" => @map },
+		  :kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]' }
+)
+%>
 
 <div id="needs">
-<a href="#" id="toggle_map" class="btn btn-small btn-inverse pull-right"><i class="icon-resize-full"></i></a>
-<h1>Needs</h1>
-<%= link_to 'New', new_work_order_path, :class => "btn" %>
+	<div id="needs_toolbar">
+		<a href="#" id="toggle_map" class="btn btn-small btn-inverse pull-right"><i class="icon-resize-full"></i></a>
+		<p class="pull-left"><strong>Needs</strong></p>
+		<%= link_to raw('<i class="icon-plus"></i> Add a Need'), new_work_order_path, :class => "btn btn-small pull-right" %>
+		<div class="table_filter">
+			<input type="text" id="needs_search" aria-controls="needs_table" placeholder="search">
+		</div>
+	</div>
+	
 <table id="needs_table" class="table">
   <thead>
   <tr>
-	<th><%= sortable "created_at", "Date" %></th>
-    <th><%= sortable "zones.zone", "Zone" %></th>
+	<th>Date</th>
+    <th>Zone</th>
     <th>Contact</th>
-    <th><%= sortable 'waiver_id', "Waiver" %></th>
-    <th><%= sortable "wo_statuses.status", "Status" %></th>
+    <th>Waiver</th>
+    <th>Status</th>
   </tr>
   </thead>
   <tbody>
@@ -26,7 +36,7 @@
 		<%= work_order.affected.contact.phone %><br/>
 		<%= work_order.affected.contact.email %>
 	</td>
-    <td><%= work_order.waiver ? raw("<i class='icon-check'></i>") : raw("<i class='icon-check-empty'></i>") %></td>
+    <td><%= work_order.waiver ? "Y" : "" %></td>
     <td><%= work_order.wo_status ? work_order.wo_status.status : "" %></td>
   </tr>
 <% end %>

@@ -1,16 +1,18 @@
-<ul class="nav">
-	<li class="pull-right"><%= link_to raw('<i class="icon-print"></i>'), root_path, :class => "btn" %></li>
+<div class="btn-group pull-right">
 	<% if @work_order.waiver %>
-	<li class="pull-right"><%= link_to 'View Waiver', work_order_waiver_path(@work_order), :class => "btn" %></li>
+	<%= link_to raw('<i class="icon-file"></i> View Waiver'), work_order_waiver_path(@work_order), :class => "btn" %>
 	<% else %>
-	<li class="pull-right"><%= link_to 'Create Waiver', new_work_order_waiver_path(@work_order), :class => "btn" %></li>
+	<%= link_to raw('<i class="icon-file"></i> Create Waiver'), new_work_order_waiver_path(@work_order), :class => "btn" %>
 	<% end %>
-	<li class="pull-right"><%= link_to 'Edit', edit_work_order_path(@work_order), :class => "btn"  %></li>
-</ul>
-<br/>
-<%= gmaps4rails(@map) %>
+    <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_work_order_path(@work_order), :class => "btn" %>
+	<%= link_to raw('<i class="icon-print"></i> Print'), root_path, :class => "btn" %>
+</div>
+<%= gmaps(:map_options => { :raw => '{ }' },
+		  :kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false, preserveViewport: true }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false, preserveViewport: true }}]' },
+		:markers     => { "data" => @map }
+)
+%>
 <div id="map_space"></div>
-
 <h2>
   <%= @work_order.affected.contact.address.address %>
 </h2>

@@ -1,0 +1,2 @@
+module MyAccount::ProfileHelper
+end
