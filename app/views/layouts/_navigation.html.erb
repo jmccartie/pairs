@@ -2,7 +2,9 @@
 
 <ul class="nav">
     <li><%= link_to('Needs', work_orders_url) %></li>
+<% if can? :read, :dashboard %>
 	<li><%= link_to('Admin', admin_dashboard_url) %></li>
+<% end %>
 </ul>
 
 <ul class="nav pull-right">

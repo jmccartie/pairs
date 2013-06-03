@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_one :contact, :as => :contactable
   
+  belongs_to :role
+  
   accepts_nested_attributes_for :authentications, :contact
   
   def profile_complete?

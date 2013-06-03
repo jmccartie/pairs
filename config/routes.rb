@@ -1,6 +1,7 @@
 Servemore::Application.routes.draw do
 
   get 'work_orders/map'
+  
   resources :work_orders do
     resource :waiver
   end
@@ -15,6 +16,7 @@ Servemore::Application.routes.draw do
   namespace :admin do
     resources :zones
     resources :wo_statuses
+    resources :roles, :except => [:destroy]
     get '/' => 'dashboard#index', :as => 'dashboard'
   end
   
