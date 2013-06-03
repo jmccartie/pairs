@@ -1,5 +1,7 @@
 <%= link_to image_tag("pairs-logo.png", :class=>"logo"), root_path, :class => 'brand' %>
 
+<<<<<<< HEAD
+=======
 <ul class="nav">
     <li><%= link_to('Needs', work_orders_url) %></li>
 <% if can? :read, :dashboard %>
@@ -7,14 +9,13 @@
 <% end %>
 </ul>
 
+>>>>>>> 2ac96eb1c3ce49ea2eed1ca22852532f638a9f25
 <ul class="nav pull-right">
 	<% if current_user %>
-	<li>
-		<%= link_to current_user.username, my_account_profile_path %>
-	</li>
-	<li>
-		<%= link_to raw('<i class="icon-signout"></i>'), logout_path %>
-	</li>
+  <li><%= link_to('Needs', work_orders_url) %></li>
+	<li><%= link_to('Admin', admin_dashboard_url) %></li>
+	<li><%= link_to current_user.username, my_account_profile_path %></li>
+	<li><%= link_to raw('<i class="icon-signout"></i>'), logout_path %></li>
 	<% else %>
 	<li><%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %></li>
 	<% end %>
