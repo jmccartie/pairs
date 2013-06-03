@@ -32,11 +32,11 @@
 				<div class="span3">
 					<div class="sidebar-nav">
 						<ul class="nav nav-pills nav-stacked">
-							<li class="nav-header">Settings</li>
 							<li class='<%= controller_name == "dashboard" ? "active" : "" %>'><a href="<%= admin_dashboard_url %>">Dashboard</a></li>
+							<li class=''><a href="">Users</a></li>
 							<li class='<%= controller_name == "zones" ? "active" : "" %>'><a href="<%= admin_zones_url %>">Zones</a></li>
-							<li class='<%= controller_name == "roles" ? "active" : "" %>'><a href="<%= admin_roles_url %>">User Roles</a></li>
-							<li class='<%= controller_name == "wo_statuses" ? "active" : "" %>'><a href="<%= admin_wo_statuses_url %>">WO Status</a></li>
+							<li class='<%= controller_name == "wo_statuses" ? "active" : "" %>'><a href="<%= admin_wo_statuses_url %>">Statuses</a></li>
+							<li class='<%= controller_name == "roles" ? "active" : "" %>'><a href="<%= admin_roles_url %>">Roles</a></li>
 						</ul>
 					</div><!--/.sidebar-nav -->
 				</div><!--/span-->
