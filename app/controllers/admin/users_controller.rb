@@ -9,6 +9,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    @user.update_attributes(params[:user])
+    @user.save
   end
 
   def delete

@@ -1,13 +1,5 @@
 Servemore::Application.routes.draw do
 
-  get "users/index"
-
-  get "users/show"
-
-  get "users/update"
-
-  get "users/delete"
-
   get 'work_orders/map'
   
   resources :work_orders do
@@ -22,6 +14,7 @@ Servemore::Application.routes.draw do
   get "logout" => "oauths#logout"
  
   namespace :admin do
+    resources :users
     resources :zones
     resources :wo_statuses
     resources :roles, :except => [:destroy]

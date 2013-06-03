@@ -9,6 +9,7 @@ class Ability
       end
       if user.role.title = "Super Admin"
         can :manage, :dashboard
+        can :manage, User
         can :manage, :zone
         can :manage, :role
         can :manage, :wo_status
