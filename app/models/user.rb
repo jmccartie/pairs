@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   private
   def set_role
-    self.role ||= Role.where(:title => "Guest")
+    self.role ||= Role.where(:title => "Guest").first
   end
   
 end
