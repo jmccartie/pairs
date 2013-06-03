@@ -1,13 +1,16 @@
-<h1>Welcome <%= current_user.username %></h1>
-<% if current_user.profile_complete? %>
-
-<p><%= current_user.contact.first_name %> <%= current_user.contact.last_name %></p>
-<p><%= current_user.contact.phone %></p>
-<p><%= current_user.contact.email %></p>
-<p><%= current_user.contact.address ? current_user.contact.address.address : "" %></p>
-<%= link_to "Edit", edit_my_account_profile_path, :class => "btn" %>
-<% else %>
-
-<p>Well this is akward... I don't seem to know your name. <%= link_to "Finish your profile here.", edit_my_account_profile_path %></p>
-
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<h1>Hello <%= current_user.username %></h1>
+			<% if current_user.profile_complete? %>
+			<p><%= current_user.contact.first_name %> <%= current_user.contact.last_name %></p>
+			<p><%= current_user.contact.phone %></p>
+			<p><%= current_user.contact.email %></p>
+			<p><%= current_user.contact.address ? current_user.contact.address.address : "" %></p>
+			<%= link_to "Edit Profile", edit_my_account_profile_path, :class => "btn btn-primary" %>
+			<% else %>
+			<p>Well this is awkward...We don't seem to know your name. <%= link_to "Finish your profile here.", edit_my_account_profile_path %></p>
+			<% end %>	
+		</div><!-- span12 -->
+	</div><!-- row -->
+</div><!-- container -->

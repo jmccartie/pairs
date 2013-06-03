@@ -24,6 +24,9 @@ a.brand:hover {
 }
 img.logo {
 }
+.navbar .brand{padding:0px 0px 0px 15px !important;}
+a.brand:hover{background-color:transparent;}
+img.logo{}
 /* Bootstrap Overrides */
 @media (max-width: 979px) {
 	.navbar-inner {
@@ -86,6 +89,19 @@ div.map_container {
 	background-color: white;
 }
 
+@media (max-width:979px){.navbar-inner{margin:0 !important;}
+}
+#needs_wrapper #needs{height:70%;-webkit-transition:height 1s;}
+#needs_wrapper div.map_container{position:absolute;top:40px;left:0;width:100%;height:30%;-webkit-transition:height 1s;z-index:-1;}
+#needs_wrapper #map{width:100%;height:100%;}
+div.map_container{width:100%;}
+#map{width:100%;}
+#needs_wrapper.map-large #needs{height:50%;}
+#needs_wrapper.map-large div.map_container{height:50%;}
+div.map_container{padding:0;margin:0;border:0;}
+#map img{max-width:none;}
+#map label{width:auto;display:inline;}
+#needs{position:absolute;bottom:0;left:0;right:0;width:100%;background-color:white;}
 /* Waivers */
 body.waivers {
   background-color: #333;
@@ -139,6 +155,15 @@ body.waivers span.address, body.waivers span.first_name, body.waivers span.last_
 	font-weight: bold;
 }
 
+body.waivers{background-color:#333;padding:5px;}
+body.waivers header{display:none;}
+body.waivers article{background-color:white;margin:0 auto;min-height:600px;margin-top:15px;padding:35px;-moz-box-shadow:3px 3px 5px rgba(0,0,0,0.45);-webkit-box-shadow:3px 3px 5px rgba(0,0,0,0.45);box-shadow:3px 3px 5px rgba(0,0,0,0.45);max-width:800px;}
+body.waivers article h1{text-align:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid #eee;}
+body.waivers article p{font-size:16px;line-height:22px;}
+body.waivers form label,body.waivers form input{text-transform:capitalize;margin-left:5px;}
+body.waivers form textarea{margin-left:5px;max-width:400px;width:90%;height:100px;}
+body.waivers footer{margin-top:15px;background-color:#ccc;}
+body.waivers span.address,body.waivers span.first_name,body.waivers span.last_name{font-weight:bold;}
 /* Signature Pad */
 /**
  *  SignaturePad: A jQuery plugin for assisting in the creation of an HTML5 canvas
@@ -228,6 +253,27 @@ body.waivers span.address, body.waivers span.first_name, body.waivers span.last_
   padding: 0;
 }
 
+* SignaturePad:A jQuery plugin for assisting in the creation of an HTML5 canvas
+* based signature pad. Records the drawn signature in JSON for later regeneration.
+*
+* @project ca.thomasjbradley.applications.signaturepad
+* @author Thomas J Bradley <hey@thomasjbradley.ca>
+* @link http://thomasjbradley.ca/lab/signature-pad
+* @link http://github.com/thomasjbradley/signature-pad
+* @copyright Copyright MMXI,Thomas J Bradley
+* @license New BSD License
+*/
+@font-face{font-family:'Journal';src:url("journal.eot");src:url("journal.eot?#iefix") format("embedded-opentype"),url("journal.woff") format("woff"),url("journal.ttf") format("truetype"),url("journal.svg#JournalRegular") format("svg");font-weight:normal;font-style:normal;}
+.sigPad{margin:0;padding:0;width:400px;}
+.sigPad label{display:block;margin:0 0 0.515em;padding:0;color:#000;font:italic normal 1em/1.375 Georgia,Times,serif;}
+.sigPad label.error{color:#f33;}
+.sigPad input{margin:0;padding:0.2em 0;width:198px;border:1px solid #666;font-size:1em;}
+.sigPad input.error{border-color:#f33;}
+.sigPad button{margin:1em 0 0 0;padding:0.6em 0.6em 0.7em;background-color:#ccc;border:0;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;cursor:pointer;color:#555;font:bold 1em/1.375 sans-serif;text-align:left;}
+.sigPad button:hover{background-color:#333;color:#fff;}
+.sig{display:none;}
+.sigNav{display:none;height:2.25em;margin:0;padding:0;position:relative;list-style-type:none;}
+.sigNav li{display:inline;float:left;margin:0;padding:0;}
 .sigNav a,
 .sigNav a:link,
 .sigNav a:visited {
@@ -241,6 +287,7 @@ body.waivers span.address, body.waivers span.first_name, body.waivers span.last_
   text-decoration: underline;
 }
 
+.sigNav a:visited{display:block;margin:0;padding:0 0.6em;border:0;color:#333;font-weight:bold;line-height:2.25em;text-decoration:underline;}
 .sigNav a.current,
 .sigNav a.current:link,
 .sigNav a.current:visited {
@@ -254,6 +301,7 @@ body.waivers span.address, body.waivers span.first_name, body.waivers span.last_
   text-decoration: none;
 }
 
+.sigNav a.current:visited{background-color:#666;-moz-border-radius-topleft:8px;-moz-border-radius-topright:8px;-webkit-border-top-left-radius:8px;-webkit-border-top-right-radius:8px;border-radius:8px 8px 0 0;color:#fff;text-decoration:none;}
 .sigNav .typeIt a.current,
 .sigNav .typeIt a.current:link,
 .sigNav .typeIt a.current:visited {
@@ -315,6 +363,22 @@ body.waivers span.address, body.waivers span.first_name, body.waivers span.last_
   font: normal 1.875em/50px "Journal",Georgia,Times,serif;
 }
 
+.sigNav .typeIt a.current:visited{background-color:#ccc;color:#555;}
+.sigNav .clearButton{bottom:0.2em;display:none;position:absolute;right:0;font-size:0.75em;line-height:1.375;}
+.sigWrapper{clear:both;height:100px;border:1px solid #ccc;}
+.sigWrapper.current{border-color:#666;}
+.signed .sigWrapper{border:0;}
+.current .pad{
+* In IE the cursor is relative to the HTML document
+* In all other browsers the cursor is relative to the CSS file
+* http://www.useragentman.com/blog/2011/12/21/cross-browser-css-cursor-images-in-depth/
+*/
+cursor:url("../build/pen.cur"),crosshair;/**
+* IE will ignore this line because of the hotspot position
+* Unfortunately we need this twice,because some browsers ignore the hotspot inside the .cur
+*/
+cursor:url("pen.cur") 16 16,crosshair;}
+.typed{height:55px;margin:0;padding:0 5px;position:absolute;z-index:90;cursor:default;color:#145394;font:normal 1.875em/50px "Journal",Georgia,Times,serif;}
 .typeItDesc,
 .drawItDesc {
   display: none;
@@ -340,3 +404,7 @@ p.error {
 	height: 125px;
 	width: 500px;
 }
+.drawItDesc{display:none;margin:0.75em 0 0.515em;padding:0.515em 0 0;border-top:3px solid #ccc;color:#000;font:italic normal 1em/1.375 Georgia,Times,serif;}
+p.error{display:block;margin:0.5em 0;padding:0.4em;background-color:#f33;color:#fff;font-weight:bold;}
+.sigPad{margin:0 auto;}
+.sigPad,.sigWrapper{height:125px;width:500px;}

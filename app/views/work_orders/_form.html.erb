@@ -24,36 +24,44 @@
 	<% end %>
 	<%= f.input :work_requested %>
 	<%= f.input :other_needs %>
-    <%= f.association :wo_status, label: "Status" %>
+  <%= f.association :wo_status, label: "Status" %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class=>'btn-primary' %>
+		<%= link_to 'Cancel', work_orders_path, :class=>'btn' %>
   </div>
 <% end %>
 
-<script>  
-        jQuery(window).ready(function(){  
-            jQuery("#locate-me").click(initiate_geolocation);  
-        });  
-        function initiate_geolocation() {  
-            navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
-        }
-		function handle_errors(error)  
-		        {  
-		            switch(error.code)  
-		            {  
-		                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
-		                break;  
-		                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
-		                break;  
-		                case error.TIMEOUT: alert("retrieving position timed out");  
-		                break;  
-		                default: alert("unknown error");  
-		                break;  
-		            }  
-		        }
-        function handle_geolocation_query(position){
-			$.get("/geocode", { lat: position.coords.latitude, long: position.coords.longitude }).done(function(data) {});
-        }  
-    </script>
+<script>
+jQuery(window).ready(function() {
+	jQuery("#locate-me").click(initiate_geolocation);
+});
+
+function initiate_geolocation() {
+	navigator.geolocation.getCurrentPosition(handle_geolocation_query);
+}
+
+function handle_errors(error) {
+	switch (error.code) {
+	case error.PERMISSION_DENIED:
+		alert("user did not share geolocation data");
+		break;
+	case error.POSITION_UNAVAILABLE:
+		alert("could not detect current position");
+		break;
+	case error.TIMEOUT:
+		alert("retrieving position timed out");
+		break;
+	default:
+		alert("unknown error");
+		break;
+	}
+}
+
+function handle_geolocation_query(position) {
+	$.get("/geocode", {
+		lat: position.coords.latitude,
+		long: position.coords.longitude
+	}).done(function(data) {});
+}
+</script>
