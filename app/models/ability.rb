@@ -9,6 +9,9 @@ class Ability
       end
       if user.role_id > 8
         can :manage, :dashboard
+        can :manage, :zone
+        can :manage, :role
+        can :manage, :wo_status
       end
     end
   end
