@@ -21,5 +21,7 @@
 
 $(function() {
 	// move later
-	$('#toggle_map').on('click', function(){ $('#needs_wrapper').toggleClass('map-large')})
+	$('#toggle_map').on('click', function(){
+		$('#map_wrapper').toggleClass('map-large');
+	});
 });
