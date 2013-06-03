@@ -1,0 +1,5 @@
+WoStatus.create(:id => 2, :status => "Processing", :style => "warning")
+WoStatus.create(:id => 3, :status => "Working", :style => "info")
+WoStatus.create(:id => 4, :status => "Completed", :style => "success")
+WoStatus.create(:id => 5, :status => "Error", :style => "error")
+WoStatus.create(:id => 1, :status => "New", :style => "new")

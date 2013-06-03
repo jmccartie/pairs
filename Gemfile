@@ -9,6 +9,8 @@ gem 'geocoder', '~> 1.1.8'
 gem 'gmaps4rails'
 gem 'cancan'
 
+gem 'seed_dumper'
+
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.6.2'
 
