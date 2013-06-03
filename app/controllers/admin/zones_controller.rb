@@ -1,4 +1,7 @@
 class Admin::ZonesController < ApplicationController
+  before_filter :require_login
+  authorize_resource :class => false
+  
   # GET /zones
   # GET /zones.json
   def index

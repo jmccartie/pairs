@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @role] do |f| %>
+	<%= f.input :title %>
+	<%= f.input :desc %>
+	<div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

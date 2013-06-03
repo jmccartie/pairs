@@ -1,0 +1,8 @@
+<h1>User Roles</h1>
+<p></p>
+
+<ul class="unstyled">
+<% @roles.each do |r| %>
+	<li><a href="<%= edit_admin_role_path(r) %>"><%= r.title %> | <%= r.desc %></a></li>
+<% end %>
+</ul>
