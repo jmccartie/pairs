@@ -34,15 +34,19 @@ div.map_container{padding:0;margin:0;border:0;}
 #map label{width:auto;display:inline;}
 #needs{position:absolute;bottom:0;left:0;right:0;width:100%;background-color:white;}
 /* Waivers */
-body.waivers{background-color:#333;padding:5px;}
+body.waivers{background:#fafafa url(waiver_bkgd.png) repeat 0 0;padding:30px 5% 100px;}
 body.waivers header{display:none;}
-body.waivers article{background-color:white;margin:0 auto;min-height:600px;margin-top:15px;padding:35px;-moz-box-shadow:3px 3px 5px rgba(0,0,0,0.45);-webkit-box-shadow:3px 3px 5px rgba(0,0,0,0.45);box-shadow:3px 3px 5px rgba(0,0,0,0.45);max-width:800px;}
+body.waivers article{background-color:white;margin:0 auto;min-height:600px;margin-top:15px;padding:35px;-moz-box-shadow:0 3px 5px rgba(0,0,0,0.45);-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.45);box-shadow:0 3px 5px rgba(0,0,0,0.45);max-width:800px;}
 body.waivers article h1{text-align:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid #eee;}
 body.waivers article p{font-size:16px;line-height:22px;}
-body.waivers form label,body.waivers form input{text-transform:capitalize;margin-left:5px;}
+body.waivers form label,
+body.waivers form input{text-transform:capitalize;margin-left:5px;}
 body.waivers form textarea{margin-left:5px;max-width:400px;width:90%;height:100px;}
-body.waivers footer{margin-top:15px;background-color:#ccc;}
-body.waivers span.address,body.waivers span.first_name,body.waivers span.last_name{font-weight:bold;}
+body.waivers span.address,
+body.waivers span.first_name,
+body.waivers span.last_name{font-weight:bold;}
+#waiverControls {margin-top:80px;}
+.waiverBack {position:fixed;top:15px;left:15px;z-index:9999;}
 /* Signature Pad */
 /**
 * SignaturePad:A jQuery plugin for assisting in the creation of an HTML5 canvas
@@ -97,5 +101,5 @@ cursor:url("pen.cur") 16 16,crosshair;}
 .typeItDesc,
 .drawItDesc{display:none;margin:0.75em 0 0.515em;padding:0.515em 0 0;border-top:3px solid #ccc;color:#000;font:italic normal 1em/1.375 Georgia,Times,serif;}
 p.error{display:block;margin:0.5em 0;padding:0.4em;background-color:#f33;color:#fff;font-weight:bold;}
-.sigPad{margin:0 auto;}
-.sigPad,.sigWrapper{height:125px;width:500px;}
+.sigPad,
+.sigWrapper{height:125px;width:100%;}

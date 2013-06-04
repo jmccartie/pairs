@@ -860,6 +860,9 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 */
 
 /* Andrews magic starts here */
+img,
+iframe,
+canvas {max-width:100%;height:auto;}
 .navbar-fixed-top {position:fixed !important;margin:0 !important;}
 .navbar-fixed-top .icon-reorder {color:#000;text-shadow:0 0 0 #fff;}
 body { padding-top: 40px;}

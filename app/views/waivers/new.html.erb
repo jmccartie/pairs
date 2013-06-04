@@ -1,7 +1,7 @@
 <%= simple_form_for @waiver, :url => work_order_waiver_path(@work_order.id), :html => {:class => 'form-inline' } do |f| %>
 <article>
 	<h1>Release Form</h1>
-	<p><span class="first_name"><%= @work_order.affected.contact.first_name %></span> <span class="last_name"><%= @work_order.affected.contact.last_name %></span> am the owner of the property at <span class="address"><%= @work_order.affected.contact.address.address %></span></p>
+	<p>I, <span class="first_name"><%= @work_order.affected.contact.first_name %></span> <span class="last_name"><%= @work_order.affected.contact.last_name %></span>, am the owner of the property at <span class="address"><%= @work_order.affected.contact.address.address %></span>.</p>
 
 	<%= render :partial => 'disclaimer' %>
 
@@ -15,42 +15,40 @@
 	  <div class="sig sigWrapper">
 	    <div class="typed"></div>
 	    <canvas class="pad" width="500px" height="125px"></canvas>
-	<input type="hidden" name="waiver[signature]" class="signature">
+			<input type="hidden" name="waiver[signature]" class="signature">
 	  </div>
 	</div>
-	<p><br/></p>
-</article>
-
-
-<footer>
-	  <%= f.error_notification %>
-	<div class="form-actions">
-	  <%= f.button :submit, :class => "btn-primary" %>
+	<div id="waiverControls" class="form-actions">
+		<%= f.error_notification %>
+		<%= f.button :submit, :class => "btn-primary" %>
 		<a href="#" class="btn btn-info" data-toggle="collapse" data-target="#demo">Edit Homeowner Info</a>
 		<%= link_to 'Back', @work_order, :class => "btn" %>
-	 </div>
-	
-	
-	<div id="demo" class="collapse">
-		<div class="form-inputs">
-		<%= f.simple_fields_for :contact do |c| %>
+		<div id="demo" class="collapse">
+			<div class="form-inputs">
+			<%= f.simple_fields_for :contact do |c| %>
 			<%= c.input :first_name, :input_html => { :value => @work_order.affected.contact.first_name } %>
 			<%= c.input :last_name, :input_html => { :value => @work_order.affected.contact.last_name } %>
 			<%= c.input :email, :input_html => { :value => @work_order.affected.contact.email }  %>
 			<%= c.input :phone, :input_html => { :value => @work_order.affected.contact.phone } %>
 			<%= c.simple_fields_for :address do |a| %>
-			<div class="control-group">
-				<label>Address</label>
-				<div class="controls">
-				  <%= a.input_field :address, :value => @work_order.affected.contact.address.address, :class => "location" %>
+				<div class="control-group">
+					<label>Address</label>
+					<div class="controls">
+					  <%= a.input_field :address, :value => @work_order.affected.contact.address.address, :class => "location" %>
+					</div>
+					<%= a.input :latitude, :as => :hidden %>
+					  <%= a.input :longitude, :as => :hidden %>
 				</div>
-				<%= a.input :latitude, :as => :hidden %>
-				  <%= a.input :longitude, :as => :hidden %>
-			</div>
 			<% end %>
-		<% end %>
+			<% end %>
+			</div>	
 		</div>
 	</div>
+</article>
+
+
+<footer>
+
 </footer>
 <% end %>
 <script type="text/javascript" charset="utf-8">
