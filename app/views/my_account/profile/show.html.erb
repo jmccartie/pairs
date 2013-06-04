@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="span12">
 			<h1>Hello <%= current_user.username %> <small><%= link_to raw('<i class="icon-signout"></i>'), logout_path %></small></h1>
+			<h1>Hello <%= current_user.username %> <small><%= link_to raw('Logout <i class="icon-signout"></i>'), logout_path %></small></h1>
 			<% if current_user.profile_complete? %>
 			<p><%= current_user.contact.first_name %> <%= current_user.contact.last_name %></p>
 			<p><%= current_user.contact.phone %></p>

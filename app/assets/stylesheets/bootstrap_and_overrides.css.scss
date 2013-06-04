@@ -882,16 +882,24 @@ body { padding-top: 40px;}
 .add-new-wo:visited,
 .add-new-wo:focus,
 .add-new-wo:hover{width:45%;color:#fff;background:#5aaa19;line-height:46px;float:right;font-size:14px;text-transform:uppercase;text-align:center;font-weight:bold;text-decoration:none;}
-
 #map_wrapper {width:100%;}
 #map_wrapper.map-large .gmaps4rails_map {width:100%;height:400px;}
-
+/* Page Headers */
+.page-header .pull-right {margin-top:-10px;}
+.breadcrumb li a,
+.breadcrumb li a:link,
+.breadcrumb li a:visited {color:#666;}
+.breadcrumb li a:focus,
+.breadcrumb li a:hover,
+.breadcrumb li a:active {color:#000;}
+/* Maps CSS */
 #toggle_map,
 #toggle_map:link,
 #toggle_map:visited,
 #toggle_map:focus,
 #toggle_map:hover {width:10%;text-align:center;color:#fff;height:46px;line-height:46px;float:left;margin:0;text-decoration:none;}
-
+/* Alerts */
+.alert {position:fixed;top:40px;left:0;width:100%;z-index:9999;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 /* Andrews magic ends here */
 
 
