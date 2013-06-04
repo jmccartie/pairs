@@ -1,19 +1,10 @@
-<h1>Users</h1>
-<p></p>
-
 <div id="main">		
-	<table id="users_table" class="table">
 	<div class="page-header">
 		<h1>Users</h1>
 	</div><!-- page-header -->
 	<table id="users_table" class="table table-stripped">
 	  <thead>
 		  <tr>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Username</th>
-			<th>Email</th>
-			<th>Role</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Username</th>
@@ -22,18 +13,9 @@
 		  </tr>
 	  </thead>
 	  <tbody>
-		<% @users.each do |u| %>
 			<% @users.each do |u| %>
 		  <tr>
 		  	<td><%= u.contact ? u.contact.first_name : "" %></td>
-			<td><%= u.contact ? u.contact.last_name : "" %></td>
-			<td><%= u.username %></td>
-			<td><%= u.contact ? u.contact.email : "" %></td>
-			<td>
-				<%= simple_form_for [:admin, u], :remote => "true" do |f| %>
-					<%= f.association :role, label: false %>
-				<% end %>
-			</td>
 				<td><%= u.contact ? u.contact.last_name : "" %></td>
 				<td><%= u.username %></td>
 				<td><%= u.contact ? u.contact.email : "" %></td>
@@ -43,7 +25,6 @@
 					<% end %>
 				</td>
 		  </tr>
-		<% end %>
 			<% end %>
 	  </tbody>
 	</table>
