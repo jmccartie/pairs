@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
 	$('#needs_table').dataTable({
-		"sScrollY": "300px",
 		"bPaginate": false,
 		"sDom": '<"top">rt<"bottom"p><"clear">'
 	})

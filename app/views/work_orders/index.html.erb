@@ -1,4 +1,4 @@
-<div id="map_wrapper">
+<div id="map_wrapper" class="map-large">
 	<%= gmaps(:map_options => {},
 		:markers     => { "data" => @map },
 		:kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]'}
@@ -10,7 +10,7 @@
 		<div class="table_filter">
 			<input type="text" id="needs_search" aria-controls="needs_table" placeholder="search">
 		</div>
-		<a href="#" id="toggle_map"><i class="icon-reorder"></i></a>
+		<a href="#" id="toggle_map"><i class="icon-map-marker"></i>&nbsp;&nbsp;VIEW MAP</a>
 		<%= link_to raw('Add a Need'), new_work_order_path, :class => "add-new-wo" %>
 	</div>
 	<div id="main">		
