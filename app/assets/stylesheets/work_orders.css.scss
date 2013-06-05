@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #needs_toolbar{background-color:#000;color:white;overflow:hidden;height:46px;}
 div.table_filter{width:45%;float:left;}
-input#needs_search {border:0;background-color:#282828;color:white;outline:0;height:46px;font-size:14px;width:100%;line-height:14px;padding:5px 10px;max-width:100%;}
+input#needs_search {border:0;background-color:#282828;color:white;outline:0;height:46px;font-size:14px;width:100%;line-height:14px;padding:5px 10px;max-width:100%;margin:0;}
 input#needs_search:focus {background-color:#222;}
 body.work_orders article{margin:15px;}
 @media print{

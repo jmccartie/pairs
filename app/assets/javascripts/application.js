@@ -26,6 +26,5 @@
 			$('#map').slideToggle();
 		});
 		
-		
 	});
 })(jQuery)
