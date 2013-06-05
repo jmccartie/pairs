@@ -30,6 +30,7 @@ class NeedsController < ApplicationController
   def show
     @need = Need.find(params[:id])
     @map = @need.to_gmaps4rails
+    @comments = @need.comments.includes(:user)
 
     respond_to do |format|
       format.html # show.html.erb

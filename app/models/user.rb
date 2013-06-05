@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
   has_one :contact, :as => :contactable
+  has_many :comment
 
   belongs_to :role
 

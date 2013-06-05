@@ -1,40 +1,68 @@
 <%= gmaps(:map_options => { :raw => '{ }' },
-		  :kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false, preserveViewport: true }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false, preserveViewport: true }}]' },
-		:markers     => { "data" => @map }
+      :kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false, preserveViewport: true }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false, preserveViewport: true }}]' },
+    :markers     => { "data" => @map }
 )
 %>
 <div id="map_space"></div>
 <div id="main">
-	<div class="container">
-		<div class="page-header">
-			<ul class="breadcrumb">
-			  <li><a href="/">Home</a> <span class="divider">/</span></li>
-			  <li><a href="/needs">Needs</a> <span class="divider">/</span></li>
-			  <li class="active"><%= @need.affected.contact.name %></b></li>
-			</ul>
-			<h1><%= @need.affected.contact.address.address %></h1>
-			<div class="btn-group pull-right">
-				<% if @need.waiver %>
-				<%= link_to raw('<i class="icon-file"></i> View Waiver'), need_waiver_path(@need), :class => "btn" %>
-				<% else %>
-				<%= link_to raw('<i class="icon-file"></i> Create Waiver'), new_need_waiver_path(@need), :class => "btn" %>
-				<% end %>
-			    <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_need_path(@need), :class => "btn" %>
-				<%= link_to raw('<i class="icon-print"></i> Print'), "javascript:window.print()", :class => "btn" %>
-			</div>
-			<span class="badge badge-important">Zone <%= @need.zone ? @need.zone.zone : "?"  %></span>
-			<span class="badge <%= @need.wo_status ? "badge-"+@need.wo_status.style : ""  %>"><%= @need.wo_status ? @need.wo_status.status : "?"  %></span>
-		</div><!-- page-header -->
-		<p>
-		  <b><%= @need.affected.contact.name %></b><br/>
-		  <%= @need.affected.contact.phone %><br/>
-		  <%= @need.affected.contact.email %>
-		</p>
-		<hr/>
-		<h4>Work Requested</h4>
-		<p><%= @need.work_requested || "none" %></p>
-		<hr/>
-		<h4>Other Needs</h4>
-		<p><%= @need.other_needs || "none" %></p>
-	</div><!-- container -->
+  <div class="container">
+    <div class="page-header">
+      <ul class="breadcrumb">
+        <li><a href="/">Home</a> <span class="divider">/</span></li>
+        <li><a href="/needs">Needs</a> <span class="divider">/</span></li>
+        <li class="active"><%= @need.affected.contact.name %></b></li>
+      </ul>
+      <h1><%= @need.affected.contact.address.address %></h1>
+      <div class="btn-group pull-right">
+        <% if @need.waiver %>
+        <%= link_to raw('<i class="icon-file"></i> View Waiver'), need_waiver_path(@need), :class => "btn" %>
+        <% else %>
+        <%= link_to raw('<i class="icon-file"></i> Create Waiver'), new_need_waiver_path(@need), :class => "btn" %>
+        <% end %>
+          <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_need_path(@need), :class => "btn" %>
+        <%= link_to raw('<i class="icon-print"></i> Print'), "javascript:window.print()", :class => "btn" %>
+      </div>
+      <span class="badge badge-important">Zone <%= @need.zone ? @need.zone.zone : "?"  %></span>
+      <span class="badge <%= @need.wo_status ? "badge-"+@need.wo_status.style : ""  %>"><%= @need.wo_status ? @need.wo_status.status : "?"  %></span>
+    </div><!-- page-header -->
+    <p>
+      <b><%= @need.affected.contact.name %></b><br/>
+      <%= @need.affected.contact.phone %><br/>
+      <%= @need.affected.contact.email %>
+    </p>
+    <hr/>
+    <h4>Work Requested</h4>
+    <p><%= @need.work_requested || "none" %></p>
+    <hr/>
+    <h4>Other Needs</h4>
+    <p><%= @need.other_needs || "none" %></p>
+    <hr />
+
+    <h4>Comments</h4>
+
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <%= comment.content %>
+        <br />
+        <em>
+          - Posted by <%= comment.user.username %> <%= time_ago_in_words comment.created_at %> ago
+        </em>
+        <hr/>
+      </div>
+    <% end %>
+
+    <h4>New Comment</h4>
+
+    <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
+      <p>
+        <%= f.text_area :content %>
+      </p>
+      <p><%= f.submit "Submit" %></p>
+    <% end %>
+
+
+  </div><!-- container -->
 </div><!-- main -->
+
+
+
