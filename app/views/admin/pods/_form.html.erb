@@ -3,6 +3,17 @@
   <div class="form-inputs">
 	<%= f.input :title %>
 	<%= f.input :desc %>
+	<%= f.simple_fields_for :address do |a| %>
+	<div class="control-group">
+		<label>Address</label>
+		<div class="input-append">
+		  <%= a.input_field :address, :class => "location" %>
+		  <button class="btn" type="button" id="locate-me"><i class="icon-location-arrow"></i></button>
+		</div>
+		<%= a.input :latitude, :as => :hidden %>
+		<%= a.input :longitude, :as => :hidden %>
+	</div>
+	<% end %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, :class=>"btn btn-primary" %>
