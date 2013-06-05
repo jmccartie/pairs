@@ -5,6 +5,8 @@ class Need < ActiveRecord::Base
   belongs_to :wo_status
   belongs_to :waiver
   has_one :affected
+  has_many :comments, :as => :commentable
+
   accepts_nested_attributes_for :affected
 
   acts_as_gmappable :process_geocoding => false

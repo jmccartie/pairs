@@ -2,6 +2,8 @@ Servemore::Application.routes.draw do
 
   get 'needs/map'
 
+  post "comments/:model/:id" => "comments#create", as: "create_comment", constraints: {model: /(need)/}
+
   resources :needs do
     resource :waiver
   end
