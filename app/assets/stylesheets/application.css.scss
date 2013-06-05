@@ -27,12 +27,11 @@ img.logo{}
 #needs_wrapper #map{width:100%;height:100%;}
 div.map_container{width:100%;}
 #map{width:100%;}
-#needs_wrapper.map-large #needs{height:50%;}
-#needs_wrapper.map-large div.map_container{height:50%;}
 div.map_container{padding:0;margin:0;border:0;}
 #map img{max-width:none;}
 #map label{width:auto;display:inline;}
 #needs{position:absolute;bottom:0;left:0;right:0;width:100%;background-color:white;}
+#needs_table tr:hover {cursor:pointer;}
 /* Waivers */
 body.waivers{background:#fafafa url(waiver_bkgd.png) repeat 0 0;padding:30px 5% 100px;}
 body.waivers header{display:none;}
