@@ -1,18 +1,16 @@
 Servemore::Application.routes.draw do
 
-  get 'work_orders/map'
-  
-  resources :work_orders do
+  get 'needs/map'
+
+  resources :needs do
     resource :waiver
   end
-  
+
   # Login
-  get "oauths/oauth"
-  get "oauths/callback"
   match "oauth/callback" => "oauths#callback"
   match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   get "logout" => "oauths#logout"
- 
+
   namespace :admin do
     resources :users
     resources :zones
@@ -20,13 +18,13 @@ Servemore::Application.routes.draw do
     resources :roles, :except => [:destroy]
     get '/' => 'dashboard#index', :as => 'dashboard'
   end
-  
+
   namespace :my_account do
     resource "profile", :controller => "profile", :only => [:show, :edit, :update]
   end
-  
+
   get 'geocode' => 'home#geocode'
-  
+
   root :to => "home#index"
 
   # The priority is based upon order of creation:

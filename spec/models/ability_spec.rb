@@ -10,7 +10,7 @@ describe Ability do
 
   describe "Super Admin" do
 
-    [:dashboard, :zone, :role, :wo_status, User, WorkOrder].each do |model|
+    [:dashboard, :zone, :role, :wo_status, User, Need].each do |model|
       it "can manage a #{model}" do
         @ability.should be_able_to(:manage, model)
       end

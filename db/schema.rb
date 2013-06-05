@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603043604) do
+ActiveRecord::Schema.define(:version => 20130605034838) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20130603043604) do
   end
 
   create_table "affecteds", :force => true do |t|
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "work_order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "need_id"
   end
 
   create_table "authentications", :force => true do |t|
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(:version => 20130603043604) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "address_id"
+  end
+
+  create_table "needs", :force => true do |t|
+    t.integer  "zone_id"
+    t.integer  "waiver_id"
+    t.integer  "wo_status_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.text     "work_requested"
+    t.text     "other_needs"
   end
 
   create_table "roles", :force => true do |t|
@@ -84,16 +94,6 @@ ActiveRecord::Schema.define(:version => 20130603043604) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "style"
-  end
-
-  create_table "work_orders", :force => true do |t|
-    t.integer  "zone_id"
-    t.integer  "waiver_id"
-    t.integer  "wo_status_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.text     "work_requested"
-    t.text     "other_needs"
   end
 
   create_table "zones", :force => true do |t|
