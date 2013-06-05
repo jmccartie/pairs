@@ -19,9 +19,13 @@
 //= require_tree .
 
 
-$(function() {
-	// move later
-	$('#toggle_map').on('click', function(){
-		$('#map_wrapper').toggleClass('map-large');
+(function($){
+	$(function(){
+	
+		$('#showHideMap').on('click', function(){
+			$('#map').slideToggle();
+		});
+		
+		
 	});
-});
+})(jQuery)
