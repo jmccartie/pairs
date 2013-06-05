@@ -10,6 +10,12 @@ describe Comment do
       @comment.should be_valid
     end
 
+    # Presence
+    it "errors if content is blank" do
+      @comment.content = nil
+      @comment.should have(1).error_on(:content)
+    end
+
     # Integer
     %w[user_id commentable_id].each do |attr|
       it "errors if #{attr} is not an integer" do

@@ -13,9 +13,8 @@ class Ability
       can :manage, Need
       can :manage, Pod
       can :manage, Comment
-    when "User"
-      can :manage, Comment, :user_id => user.id
     else
+      can :manage, Comment, :user_id => user.id
       can :read, Need
     end
 

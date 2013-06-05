@@ -303,7 +303,6 @@ CREATE TABLE users (
     last_login_at timestamp without time zone,
     last_logout_at timestamp without time zone,
     last_activity_at timestamp without time zone,
-    role_id integer,
     role character varying(255)
 );
 
