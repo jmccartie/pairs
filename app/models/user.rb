@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   def profile_complete?
     self.contact.present? && self.contact.first_name.present? && self.contact.last_name.present? && self.contact.email.present?
   end
+  
+  def self.roles
+    ROLES
+  end
 
   private
   def set_role

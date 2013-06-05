@@ -616,6 +616,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130526051426');
 
 INSERT INTO schema_migrations (version) VALUES ('20130526051732');
 
+INSERT INTO schema_migrations (version) VALUES ('20130526051846');
+
 INSERT INTO schema_migrations (version) VALUES ('20130526052953');
 
 INSERT INTO schema_migrations (version) VALUES ('20130530205312');
@@ -627,6 +629,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130530210129');
 INSERT INTO schema_migrations (version) VALUES ('20130530210407');
 
 INSERT INTO schema_migrations (version) VALUES ('20130530224952');
+
+INSERT INTO schema_migrations (version) VALUES ('20130531010737');
 
 INSERT INTO schema_migrations (version) VALUES ('20130531011000');
 

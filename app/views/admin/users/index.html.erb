@@ -21,7 +21,7 @@
 				<td><%= u.contact ? u.contact.email : "" %></td>
 				<td>
 					<%= simple_form_for [:admin, u], :remote => "true" do |f| %>
-						<%= f.association :role, label: false %>
+						<%= f.input :role, collection: User.roles, label: false, :class => "user_role" %>
 					<% end %>
 				</td>
 		  </tr>
