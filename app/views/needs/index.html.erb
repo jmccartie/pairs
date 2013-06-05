@@ -1,5 +1,5 @@
 <div id="map_wrapper">
-	<%= gmaps(:map_options => {},
+	<%= gmaps(:map_options => { "auto_zoom" => false, "zoom" => 14},
 		:markers     => { "data" => @map },
 		:kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]'}
 	)
@@ -26,11 +26,11 @@
 		  </thead>
 		  <tbody>
 				<% @needs.each do |need| %>
-			  <tr class="<%= need.wo_status ? need.wo_status.style : "" %>">
+			  <tr onclick="window.location = '<%= need_path(need) %>';" class="<%= need.wo_status ? need.wo_status.style : '' %>">
 					<td><%= need.created_at.strftime('%m/%d') %></td>
 			    <td><%= need.zone ? need.zone.zone : "?" %></td>
 			    <td>
-						<strong><%= link_to need.affected.contact.address.address, need %></strong><br/>
+						<strong><%= need.affected.contact.address.address %></strong><br/>
 						<%= need.affected.contact.name %><br/>
 						<%= need.affected.contact.phone %><br/>
 						<%= need.affected.contact.email %>
