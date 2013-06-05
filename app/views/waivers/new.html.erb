@@ -11,12 +11,12 @@
 		Signature
 	</p>
 	<div class="sigPad">
-	  <a href="#clear" class="btn btn-tiny clearButton">Clear</a>
 	  <div class="sig sigWrapper">
 	    <div class="typed"></div>
 	    <canvas class="pad" width="500px" height="125px"></canvas>
 			<input type="hidden" name="waiver[signature]" class="signature">
 	  </div>
+	  <a href="#clear" class="btn clearButton">Clear</a>
 	</div>
 	<div id="waiverControls" class="form-actions">
 		<%= f.error_notification %>
@@ -66,10 +66,10 @@ $(function() {
 			drawOnly : 'true',
 			penColour : "#333",
 			lineColour : '#ccc',
+			lineWidth: '1',
 			lineTop : 100,
 			output : ".signature",
 			clear : ".clearButton"
-
 		});
 	});
 </script>
