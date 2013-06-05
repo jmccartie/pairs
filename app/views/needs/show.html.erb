@@ -1,4 +1,4 @@
-<%= gmaps(:map_options => { :raw => '{ }' },
+<%= gmaps(:map_options => { :raw => '{ }', "auto_zoom" => false, "zoom" => 17 },
       :kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false, preserveViewport: true }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false, preserveViewport: true }}]' },
     :markers     => { "data" => @map }
 )
@@ -37,30 +37,26 @@
     <h4>Other Needs</h4>
     <p><%= @need.other_needs || "none" %></p>
     <hr />
+		<div id="commentsWrapper">
+	    <h4>Comments</h4>
 
-    <h4>Comments</h4>
-
-    <% @comments.each do |comment| %>
-      <div class="comment">
-        <%= comment.content %>
-        <br />
-        <em>
-          - Posted by <%= comment.user.username %> <%= time_ago_in_words comment.created_at %> ago
-        </em>
-        <hr/>
-      </div>
-    <% end %>
-
-    <h4>New Comment</h4>
-
-    <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
-      <p>
-        <%= f.text_area :content %>
-      </p>
-      <p><%= f.submit "Submit" %></p>
-    <% end %>
+	    <% @comments.each do |comment| %>
+	      <blockquote class="comment">
+	        <p><%= comment.content %></p>
+	        <small>posted by <strong><%= comment.user.username %></strong> <%= time_ago_in_words comment.created_at %> ago</small>
+	        <hr/>
+	      </blockquote>
+	    <% end %>
 
 
+	    <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
+	      <div class="control-group">
+			    <label>New Comment</label>
+	        <%= f.text_area :content %>
+				</div>
+				<%= f.submit "Submit", :value=>"Add Comment", :class=>"btn btn-primary" %>
+	    <% end %>
+		</div><!-- commentsWrapper -->
   </div><!-- container -->
 </div><!-- main -->
 

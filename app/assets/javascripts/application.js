@@ -24,6 +24,7 @@
 	
 		$('#showHideMap').on('click', function(){
 			$('#map').slideToggle();
+			return false;
 		});
 		
 	});

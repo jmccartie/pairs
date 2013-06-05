@@ -33,7 +33,7 @@ div.map_container{padding:0;margin:0;border:0;}
 #needs{position:absolute;bottom:0;left:0;right:0;width:100%;background-color:white;}
 #needs_table tr:hover {cursor:pointer;}
 /* Waivers */
-body.waivers{background:#fafafa url(waiver_bkgd.png) repeat 0 0;padding:30px 5% 100px;}
+body.waivers{background:#fafafa url(waiver_bkgd.png) repeat 0 0;padding:35px 5% 100px;}
 body.waivers header{display:none;}
 body.waivers article{background-color:white;margin:0 auto;min-height:600px;margin-top:15px;padding:35px;-moz-box-shadow:0 3px 5px rgba(0,0,0,0.45);-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.45);box-shadow:0 3px 5px rgba(0,0,0,0.45);max-width:800px;}
 body.waivers article h1{text-align:center;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid #eee;}
@@ -45,7 +45,7 @@ body.waivers span.address,
 body.waivers span.first_name,
 body.waivers span.last_name{font-weight:bold;}
 #waiverControls {margin-top:80px;}
-.waiverBack {position:fixed;top:15px;left:15px;z-index:9999;}
+.waiverBack {position:fixed;top:10px;left:10px;z-index:9999;}
 /* Signature Pad */
 /**
 * SignaturePad:A jQuery plugin for assisting in the creation of an HTML5 canvas
