@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  zone: MyString
-  desc: MyString
-
-two:
-  zone: MyString
-  desc: MyString
