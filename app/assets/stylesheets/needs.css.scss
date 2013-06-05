@@ -1,8 +1,23 @@
 // Place all the styles related to the WorkOrders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-#needs_toolbar{background-color:#000;color:white;overflow:hidden;height:46px;}
+div.main #needs_wrapper {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50%;
+	background-color: white;
+	-webkit-transition: height 1s ease-out;
+}
+div.main.hideMap #needs_wrapper {
+	height: 80%;
+}
+#needs_toolbar {
+  background-color: #000;
+  color: white;
+  overflow: hidden;
+  height: 46px;
+}
 div.table_filter{width:45%;float:left;}
 input#needs_search {border:0;background-color:#282828;color:white;outline:0;height:46px;font-size:14px;width:100%;line-height:14px;padding:5px 10px;max-width:100%;margin:0;}
 input#needs_search:focus {background-color:#222;}

@@ -17,15 +17,3 @@
 //= require json2.min
 //= require jquery.dataTables.min
 //= require_tree .
-
-
-(function($){
-	$(function(){
-	
-		$('#showHideMap').on('click', function(){
-			$('#map').slideToggle();
-			return false;
-		});
-		
-	});
-})(jQuery)

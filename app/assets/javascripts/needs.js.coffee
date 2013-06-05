@@ -2,13 +2,29 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-	$('#needs_table').dataTable({
-		"sScrollY": "400px",
+	
+	calcDataTableHeight = ->
+		return $('#needs_wrapper').height() - 105
+
+	oTable = $('#needs_table').dataTable({
+		"sScrollY": calcDataTableHeight(),
 		"bPaginate": false,
 		"sDom": '<"top">rt<"bottom"p><"clear">'
 	})
-	oTable = $('#needs_table').dataTable()
-	$('#needs_search').keypress ->
+	
+	$('#needs_search').keyup ->
 	      oTable.fnFilter $(this).val()
 	$('#needs_search').blur ->
 	      oTable.fnFilter $(this).val()
+	
+	$('#showHideMap').click ->
+		$('div.main').toggleClass('hideMap')
+		clearTimeout(window.refresh_size)
+		window.refresh_size = setTimeout( -> $(window).resize()
+		1000)
+		
+	$(window).resize ->
+		$('div.dataTables_scrollBody').height(calcDataTableHeight())
+		oSettings = oTable.fnSettings()
+		oSettings.oScroll.sY = calcDataTableHeight(); 
+		oTable.fnDraw()
