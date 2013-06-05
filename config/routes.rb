@@ -13,6 +13,7 @@ Servemore::Application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :pods
     resources :zones
     resources :wo_statuses
     resources :roles, :except => [:destroy]
