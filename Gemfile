@@ -8,7 +8,7 @@ gem 'nested_form', '~> 0.3.2'
 gem 'geocoder', '~> 1.1.8'
 gem 'gmaps4rails'
 gem 'cancan'
-
+gem 'activerecord-postgres-hstore'
 gem 'seed_dumper'
 
 group :assets do

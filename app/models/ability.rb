@@ -14,6 +14,7 @@ class Ability
         can :manage, :role
         can :manage, :wo_status
         can :manage, WorkOrder
+        can :manage, Pod
       end
     end
   end

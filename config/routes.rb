@@ -1,6 +1,4 @@
 Servemore::Application.routes.draw do
-
-  get 'work_orders/map'
   
   resources :work_orders do
     resource :waiver
@@ -15,6 +13,7 @@ Servemore::Application.routes.draw do
  
   namespace :admin do
     resources :users
+    resources :pods
     resources :zones
     resources :wo_statuses
     resources :roles, :except => [:destroy]
