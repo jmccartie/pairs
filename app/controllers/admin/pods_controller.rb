@@ -6,6 +6,7 @@ class Admin::PodsController < ApplicationController
   end
 
   def new
+    @pod.build_address
   end
   
   def create
@@ -24,6 +25,7 @@ class Admin::PodsController < ApplicationController
   end
   
   def edit
+    @pod.address.nil? ? @pod.build_address : ""
   end
   
   def update
