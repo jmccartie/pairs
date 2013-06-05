@@ -1,4 +1,4 @@
-<%= simple_form_for(@work_order) do |f| %>
+<%= simple_form_for(@need) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -28,7 +28,7 @@
   </div>
   <div class="form-actions">
     <%= f.button :submit, :class=>'btn-primary' %>
-		<%= link_to 'Cancel', work_orders_path, :class=>'btn' %>
+		<%= link_to 'Cancel', needs_path, :class=>'btn' %>
   </div>
 <% end %>
 

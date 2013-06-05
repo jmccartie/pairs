@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe WorkOrder do
+describe Need do
   before do
-    @wo = build(:work_order)
+    @need = build(:need)
   end
 
   describe "validations" do
     it "is valid" do
-      @wo.should be_valid
+      @need.should be_valid
     end
   end
 

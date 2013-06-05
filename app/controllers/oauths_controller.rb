@@ -1,10 +1,10 @@
 class OauthsController < ApplicationController
   skip_before_filter :require_login
-  
+
   def oauth
     login_at(params[:provider])
   end
-  
+
   def logout
     if logged_in?
       reset_session

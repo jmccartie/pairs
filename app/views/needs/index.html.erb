@@ -1,0 +1,45 @@
+<div id="map_wrapper">
+	<%= gmaps(:map_options => {},
+		:markers     => { "data" => @map },
+		:kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]'}
+	)
+	%>
+</div><!-- map_wrapper -->
+<div id="needs_wrapper">
+	<div id="needs_toolbar">
+		<div class="table_filter">
+			<input type="text" id="needs_search" aria-controls="needs_table" placeholder="search">
+		</div>
+		<a href="#" id="toggle_map"><i class="icon-reorder"></i></a>
+		<%= link_to raw('Add a Need'), new_need_path, :class => "add-new-wo" %>
+	</div>
+	<div id="main">
+		<table id="needs_table" class="table">
+		  <thead>
+			  <tr>
+					<th>Date</th>
+					<th>Zone</th>
+					<th>Contact</th>
+					<th>Waiver</th>
+					<th>Status</th>
+			  </tr>
+		  </thead>
+		  <tbody>
+				<% @needs.each do |need| %>
+			  <tr class="<%= need.wo_status ? need.wo_status.style : "" %>">
+					<td><%= need.created_at.strftime('%m/%d') %></td>
+			    <td><%= need.zone ? need.zone.zone : "?" %></td>
+			    <td>
+						<strong><%= link_to need.affected.contact.address.address, need %></strong><br/>
+						<%= need.affected.contact.name %><br/>
+						<%= need.affected.contact.phone %><br/>
+						<%= need.affected.contact.email %>
+					</td>
+			    <td><%= need.waiver ? "Y" : "" %></td>
+			    <td><%= need.wo_status ? need.wo_status.status : "" %></td>
+			  </tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div><!-- main -->
+</div> <!--END needs_wrapper -->

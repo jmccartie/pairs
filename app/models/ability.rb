@@ -13,8 +13,8 @@ class Ability
         can :manage, :zone
         can :manage, :role
         can :manage, :wo_status
-        can :manage, WorkOrder
-        can :manage, Pod
+        can :manage, Need
+		    can :manage, Pod
       end
     end
   end
