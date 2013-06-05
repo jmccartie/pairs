@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
     if user.role.present?
       if user.role_id > 1
-        can :read, WorkOrder
+        can :read, Need
       end
       if user.role.title = "Super Admin"
         can :manage, :dashboard

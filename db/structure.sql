@@ -83,7 +83,7 @@ CREATE TABLE affecteds (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    work_order_id integer
+    need_id integer
 );
 
 
@@ -174,6 +174,41 @@ CREATE SEQUENCE contacts_id_seq
 --
 
 ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
+
+
+--
+-- Name: needs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE needs (
+    id integer NOT NULL,
+    zone_id integer,
+    waiver_id integer,
+    wo_status_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    work_requested text,
+    other_needs text
+);
+
+
+--
+-- Name: needs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE needs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: needs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE needs_id_seq OWNED BY needs.id;
 
 
 --
@@ -357,41 +392,6 @@ ALTER SEQUENCE wo_statuses_id_seq OWNED BY wo_statuses.id;
 
 
 --
--- Name: work_orders; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE work_orders (
-    id integer NOT NULL,
-    zone_id integer,
-    waiver_id integer,
-    wo_status_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    work_requested text,
-    other_needs text
-);
-
-
---
--- Name: work_orders_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE work_orders_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: work_orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE work_orders_id_seq OWNED BY work_orders.id;
-
-
---
 -- Name: zones; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -455,6 +455,13 @@ ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY needs ALTER COLUMN id SET DEFAULT nextval('needs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY pods ALTER COLUMN id SET DEFAULT nextval('pods_id_seq'::regclass);
 
 
@@ -484,13 +491,6 @@ ALTER TABLE ONLY waivers ALTER COLUMN id SET DEFAULT nextval('waivers_id_seq'::r
 --
 
 ALTER TABLE ONLY wo_statuses ALTER COLUMN id SET DEFAULT nextval('wo_statuses_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY work_orders ALTER COLUMN id SET DEFAULT nextval('work_orders_id_seq'::regclass);
 
 
 --
@@ -576,7 +576,7 @@ ALTER TABLE ONLY wo_statuses
 -- Name: work_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY work_orders
+ALTER TABLE ONLY needs
     ADD CONSTRAINT work_orders_pkey PRIMARY KEY (id);
 
 
@@ -653,5 +653,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130603043604');
 INSERT INTO schema_migrations (version) VALUES ('20130605032604');
 
 INSERT INTO schema_migrations (version) VALUES ('20130605032922');
+
+INSERT INTO schema_migrations (version) VALUES ('20130605034838');
 
 INSERT INTO schema_migrations (version) VALUES ('20130605035901');
