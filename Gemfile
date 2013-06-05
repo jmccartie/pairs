@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '~> 3.2.9'
+gem 'rails', '~> 3.2.13'
 
 gem "sorcery"
 gem 'pg', '~> 0.15.1'
@@ -11,29 +11,48 @@ gem 'cancan'
 
 gem 'seed_dumper'
 
-# Use unicorn as the app server
-gem 'unicorn', '~> 4.6.2'
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '~> 2.3.1.2'
   gem 'jquery-datatables-rails'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails', '~> 3.0.0'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development, :test do
+  gem 'pry-rails'
+  gem "rspec-rails", "~> 2.12.0"
+  gem "factory_girl_rails", "~> 4.0.0"
+  gem "guard", "~> 1.6.1"
+  gem "guard-spork"
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem "capybara", '~> 1.1'
+  gem 'launchy'
+  gem 'database_cleaner', "~> 0.9.1"
+  gem 'terminal-notifier-guard'
+  gem "fakeweb"
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'dotenv-rails'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :development do
+  gem 'heroku'
+  gem 'sextant'
+  gem "better_errors"
+  gem "binding_of_caller", "~> 0.7.1"
+  gem 'quiet_assets'
+  gem "foreman"
+end
 
-# To use debugger
-# gem 'debugger'
+group :test do
+  gem "poltergeist", "~> 1.0.2"
+end
+
+group :production do
+  gem 'unicorn', '~> 4.6.2'
+end

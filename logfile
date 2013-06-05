@@ -1,0 +1,39 @@
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 11579) running in data directory "/usr/local/var/postgres"?
+LOG:  database system was shut down at 2013-06-02 22:30:47 CDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "wayne" does not exist
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2013-06-02 22:40:47 CDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "wayne" does not exist
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2013-06-03 11:09:14 CDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "wayne" does not exist
+ERROR:  database "servemore_dev" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "servemore_dev"
+FATAL:  database "servemore_test" does not exist
+FATAL:  role "wayne" does not exist
+FATAL:  role "wayne" does not exist
+FATAL:  role "wayne" does not exist
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 17647) running in data directory "/usr/local/var/postgres"?
+FATAL:  role "wayne" does not exist
+FATAL:  role "wayne" does not exist
+FATAL:  role "wayne" does not exist
+FATAL:  role "wayne" does not exist
