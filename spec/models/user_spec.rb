@@ -9,6 +9,12 @@ describe User do
     it "is valid" do
       @user.should be_valid
     end
+
+    it "errors if role is not in the list" do
+      @user.role = "foobar"
+      @user.should have(1).error_on(:role)
+    end
+
   end
 
   describe "#profile_complete?" do
@@ -31,7 +37,7 @@ describe User do
     it "sets role" do
       @user.role == nil
       @user.save!
-      @user.role.should be_kind_of Role
+      User::ROLES.should include(@user.role)
     end
   end
 

@@ -280,38 +280,6 @@ ALTER SEQUENCE pods_id_seq OWNED BY pods.id;
 
 
 --
--- Name: roles; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE roles (
-    id integer NOT NULL,
-    title character varying(255),
-    "desc" character varying(255),
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE roles_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE roles_id_seq OWNED BY roles.id;
-
-
---
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -335,7 +303,7 @@ CREATE TABLE users (
     last_login_at timestamp without time zone,
     last_logout_at timestamp without time zone,
     last_activity_at timestamp without time zone,
-    role_id integer
+    role character varying(255)
 );
 
 
@@ -510,13 +478,6 @@ ALTER TABLE ONLY pods ALTER COLUMN id SET DEFAULT nextval('pods_id_seq'::regclas
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY roles ALTER COLUMN id SET DEFAULT nextval('roles_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -587,14 +548,6 @@ ALTER TABLE ONLY contacts
 
 ALTER TABLE ONLY pods
     ADD CONSTRAINT pods_pkey PRIMARY KEY (id);
-
-
---
--- Name: roles_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY roles
-    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
 
 
 --
@@ -708,3 +661,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130605034838');
 INSERT INTO schema_migrations (version) VALUES ('20130605035901');
 
 INSERT INTO schema_migrations (version) VALUES ('20130605040829');
+
+INSERT INTO schema_migrations (version) VALUES ('20130605133934');

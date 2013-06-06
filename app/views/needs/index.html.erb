@@ -10,7 +10,7 @@
 		<div class="table_filter">
 			<input type="text" id="needs_search" aria-controls="needs_table" placeholder="search">
 		</div>
-		<a href="#" id="showHideMap"><i class="icon-sort"></i>&nbsp;&nbsp;MAP</a>
+		<a href="#" id="showHideMap"><i class="icon-sort"></i><span>&nbsp;&nbsp;MAP</span></a>
 		<%= link_to raw('<i class="icon-plus"></i><span>&nbsp;&nbsp;Add a Need</span>'), new_need_path, :class => "add-new-wo" %>
 	</div>
 		<table id="needs_table" class="table">
@@ -26,13 +26,15 @@
 		  <tbody>
 				<% @needs.each do |need| %>
 			  <tr onclick="window.location = '<%= need_path(need) %>';" class="<%= need.wo_status ? need.wo_status.style : '' %>">
-					<td><%= need.created_at.strftime('%m/%d') %></td>
+					<td><%= need.created_at.strftime('%m/%d/%y') %></td>
 			    <td><%= need.zone ? need.zone.zone : "?" %></td>
 			    <td>
-						<strong><%= need.affected.contact.address.address %></strong><br/>
-						<%= need.affected.contact.name %><br/>
-						<%= need.affected.contact.phone %><br/>
-						<%= need.affected.contact.email %>
+						<address>
+							<strong><%= need.affected.contact.address.address %></strong><br/>
+							<%= need.affected.contact.name %><br/>
+							<%= need.affected.contact.phone %><br/>
+							<%= need.affected.contact.email %>
+						</address>	
 					</td>
 			    <td><%= need.waiver ? "Y" : "" %></td>
 			    <td><%= need.wo_status ? need.wo_status.status : "" %></td>

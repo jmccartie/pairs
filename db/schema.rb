@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605040829) do
+ActiveRecord::Schema.define(:version => 20130605133934) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -66,9 +66,11 @@ ActiveRecord::Schema.define(:version => 20130605040829) do
     t.text     "other_needs"
   end
 
-  create_table "roles", :force => true do |t|
+  create_table "pods", :force => true do |t|
     t.string   "title"
-    t.string   "desc"
+    t.text     "desc"
+    t.hstore   "properties"
+    t.text     "notice"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130605040829) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.integer  "role_id"
+    t.string   "role"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

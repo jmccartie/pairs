@@ -7,5 +7,5 @@ jQuery ->
 	})
 	oTable = $('#users_table').dataTable()
 	
-	$('#user_role_id').change ->
+	$('.user_role select').change ->
 		$(this).closest('form').submit()

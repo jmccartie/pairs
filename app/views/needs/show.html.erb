@@ -37,26 +37,26 @@
     <h4>Other Needs</h4>
     <p><%= @need.other_needs || "none" %></p>
     <hr />
-		<div id="commentsWrapper">
-	    <h4>Comments</h4>
+    <div id="commentsWrapper">
+	  <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
+        <div class="control-group">
+          <%= f.text_area :content, :placeholder => "Leave a Comment" %>
+		  <%= f.submit "Submit", :value=>"Comment", :class=>"btn btn-primary" %>
+        </div>
+      <% end %>
+      <h4>Comments</h4>
 
-	    <% @comments.each do |comment| %>
-	      <blockquote class="comment">
-	        <p><%= comment.content %></p>
-	        <small>posted by <strong><%= comment.user.username %></strong> <%= time_ago_in_words comment.created_at %> ago</small>
-	        <hr/>
-	      </blockquote>
-	    <% end %>
-
-
-	    <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
-	      <div class="control-group">
-			    <label>New Comment</label>
-	        <%= f.text_area :content %>
-				</div>
-				<%= f.submit "Submit", :value=>"Add Comment", :class=>"btn btn-primary" %>
-	    <% end %>
-		</div><!-- commentsWrapper -->
+      <% @comments.each do |comment| %>
+        <blockquote class="comment">
+          <p><%= comment.content %></p>
+          <small>posted by <strong><%= comment.user.username %></strong> <%= time_ago_in_words comment.created_at %> ago</small>
+          <% if can? :destroy, comment %>
+              <%= link_to "Delete", comment_path(comment), method: :delete, confirm: "Are you sure?" %>
+            <% end %>
+          <hr/>
+        </blockquote>
+      <% end %>
+    </div><!-- commentsWrapper -->
   </div><!-- container -->
 </div><!-- main -->
 
