@@ -21,9 +21,9 @@
 	<div id="waiverControls" class="form-actions">
 		<%= f.error_notification %>
 		<%= f.button :submit, :class => "btn-primary" %>
-		<a href="#" class="btn btn-info" data-toggle="collapse" data-target="#demo">Edit Homeowner Info</a>
+		<a href="#" class="btn btn-info" data-toggle="collapse" data-target="#changeContact">Edit Homeowner Info</a>
 		<%= link_to 'Back', @need, :class => "btn" %>
-		<div id="demo" class="collapse">
+		<div id="changeContact" class="collapse">
 			<div class="form-inputs">
 			<%= f.simple_fields_for :contact do |c| %>
 			<%= c.input :first_name, :input_html => { :value => @need.affected.contact.first_name } %>
