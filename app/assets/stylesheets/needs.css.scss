@@ -5,35 +5,16 @@ div.table_filter{width:45%;float:left;}
 input#needs_search {border:0;background-color:#282828;color:white;outline:0;height:46px;font-size:14px;width:100%;line-height:14px;padding:5px 10px;max-width:100%;margin:0;}
 input#needs_search:focus {background-color:#222;outline:0 !important;-webkit-box-shadow:0 !important;-moz-box-shadow:0 !important;box-shadow:0 !important;}
 body.work_orders article{margin:15px;}
-<<<<<<< HEAD
+
 .dataTable {margin-bottom:0;}
-=======
 
 /* Comments */
-#commentsWrapper {
-}
-#commentsWrapper .control-group {
-	position: relative;
-	width: 480px;
-}
-#commentsWrapper .control-group input[name=commit] {
-	position: absolute;
-	right: 0;
-}
-#comment_content {
-	border: 2px solid #ccc;
-	padding: 15px;
-	height: 20px;
-	width: 450px;
-	-webkit-border-radius: 5px;
-	-webkit-transition: height .5s;
-}
+#commentsWrapper{}
+#commentsWrapper .control-group{position:relative;width:480px;}
+#commentsWrapper .control-group input[name=commit]{position:absolute;right:0;}
+#comment_content{border:2px solid #ccc;padding:15px;height:20px;width:450px;-webkit-border-radius:5px;-webkit-transition:height .5s;}
+#comment_content.typing{height:60px;}
 
-#comment_content.typing {
-	height: 60px;
-}
-
->>>>>>> 7b584d51dd12c0bb368cc621393d5b06ed06e459
 @media print{
 	body.needs{padding-top:0;}
 	body.needs header,
