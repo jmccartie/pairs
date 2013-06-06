@@ -36,4 +36,3 @@ jQuery ->
 		
 	$('#comment_content').blur ->
 		$(this).removeClass('typing')
-		$(this).removeClass('typing')
