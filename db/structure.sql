@@ -303,7 +303,9 @@ CREATE TABLE users (
     last_login_at timestamp without time zone,
     last_logout_at timestamp without time zone,
     last_activity_at timestamp without time zone,
-    role character varying(255)
+    role character varying(255),
+    remember_me_token character varying(255) DEFAULT NULL::character varying,
+    remember_me_token_expires_at timestamp without time zone
 );
 
 
@@ -598,6 +600,13 @@ CREATE INDEX index_users_on_last_logout_at_and_last_activity_at ON users USING b
 
 
 --
+-- Name: index_users_on_remember_me_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_remember_me_token ON users USING btree (remember_me_token);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -663,3 +672,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130605035901');
 INSERT INTO schema_migrations (version) VALUES ('20130605040829');
 
 INSERT INTO schema_migrations (version) VALUES ('20130605133934');
+
+INSERT INTO schema_migrations (version) VALUES ('20130606020931');
