@@ -18,11 +18,13 @@ jQuery ->
 	      oTable.fnFilter $(this).val()
 	
 	$('#showHideMap').click ->
-		$('div.main').toggleClass('hideMap')
+		$('#main').toggleClass('hideMap')
+		# Leave for now until I rewrite this stuff
+		# $('#needs_wrapper').height($(window).height() - 40)
 		clearTimeout(window.refresh_size)
 		window.refresh_size = setTimeout( -> $(window).resize()
 		1000)
-		
+
 	$(window).resize ->
 		$('div.dataTables_scrollBody').height(calcDataTableHeight())
 		oSettings = oTable.fnSettings()
