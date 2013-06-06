@@ -1,4 +1,4 @@
-<div id="map_wrapper">
+<div id="map_wrapper" class="tallMap">
 	<%= gmaps(:map_options => { "auto_zoom" => false, "zoom" => 14},
 		:markers     => { "data" => @map },
 		:kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false }}]'}
