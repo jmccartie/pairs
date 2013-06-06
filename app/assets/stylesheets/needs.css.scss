@@ -23,6 +23,30 @@ input#needs_search {border:0;background-color:#282828;color:white;outline:0;heig
 input#needs_search:focus {background-color:#222;}
 body.work_orders article{margin:15px;}
 
+/* Comments */
+#commentsWrapper {
+}
+#commentsWrapper .control-group {
+	position: relative;
+	width: 480px;
+}
+#commentsWrapper .control-group input[name=commit] {
+	position: absolute;
+	right: 0;
+}
+#comment_content {
+	border: 2px solid #ccc;
+	padding: 15px;
+	height: 20px;
+	width: 450px;
+	-webkit-border-radius: 5px;
+	-webkit-transition: height .5s;
+}
+
+#comment_content.typing {
+	height: 60px;
+}
+
 @media print{
 	body.needs{padding-top:0;}
 	body.needs header,

@@ -38,6 +38,12 @@
     <p><%= @need.other_needs || "none" %></p>
     <hr />
     <div id="commentsWrapper">
+	  <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
+        <div class="control-group">
+          <%= f.text_area :content, :placeholder => "Leave a Comment" %>
+		  <%= f.submit "Submit", :value=>"Comment", :class=>"btn btn-primary" %>
+        </div>
+      <% end %>
       <h4>Comments</h4>
 
       <% @comments.each do |comment| %>
@@ -49,15 +55,6 @@
             <% end %>
           <hr/>
         </blockquote>
-      <% end %>
-
-
-      <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
-        <div class="control-group">
-          <label>New Comment</label>
-          <%= f.text_area :content %>
-        </div>
-        <%= f.submit "Submit", :value=>"Add Comment", :class=>"btn btn-primary" %>
       <% end %>
     </div><!-- commentsWrapper -->
   </div><!-- container -->

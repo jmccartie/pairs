@@ -28,3 +28,9 @@ jQuery ->
 		oSettings = oTable.fnSettings()
 		oSettings.oScroll.sY = calcDataTableHeight(); 
 		oTable.fnDraw()
+		
+	$('#comment_content').focus ->
+		$(this).addClass('typing')
+		
+	$('#comment_content').blur ->
+		$(this).removeClass('typing')
