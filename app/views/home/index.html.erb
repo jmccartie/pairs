@@ -6,7 +6,11 @@
 				<a href="#" id="getHelp">GET HELP</a>
 				<a href="#" id="giveHelp">GIVE HELP</a>					
 				<div id="orTwitter">
-					<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>
+					<% if current_user %>
+						<%= link_to "Go to Needs", needs_path %>
+					<% else %>
+						<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>
+					<% end %>
 				</div><!-- span12 -->
 			</div><!-- span9 offset3 -->
 		</div><!-- row -->

@@ -20,7 +20,11 @@ class Need < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-    "<a href='#{Rails.application.routes.url_helpers.need_path(self)}'>#{self.affected.contact.address.address}</a>"
+    "<a href='#{Rails.application.routes.url_helpers.need_path(self)}'>#{self.affected.contact.address.address}</a>
+    <ul class='short_descriptions'>
+			<li><span>W</span> #{self.work_requested || 'none'} </li>
+			<li><span>O</span> #{self.other_needs || 'none'} </li>
+		</ul>"
   end
 
 end

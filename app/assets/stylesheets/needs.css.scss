@@ -39,6 +39,35 @@ body.work_orders article{margin:15px;}
 
 .dataTable {margin-bottom:0;}
 
+/* Needs Index Items */
+body.needs.index address {
+	margin: 0;
+}
+ul.short_descriptions {
+	margin: 0;
+	padding: 0;
+}
+ul.short_descriptions li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 80%;
+	text-transform: capitalize;
+	text-overflow: ellipsis;
+	height: 18px;
+	overflow: hidden;
+	font-style: italic;
+}
+ul.short_descriptions li span:first-child {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 60%;
+	color: #333;
+	display: inline-block;
+	width: 14px;
+	text-align: center;
+}
+
 /* Comments */
 #commentsWrapper{}
 #commentsWrapper .control-group{position:relative;width:100%;}

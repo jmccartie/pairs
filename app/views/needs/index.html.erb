@@ -30,11 +30,12 @@
 			    <td><%= need.zone ? need.zone.zone : "?" %></td>
 			    <td>
 						<address>
-							<strong><%= need.affected.contact.address.address %></strong><br/>
-							<%= need.affected.contact.name %><br/>
-							<%= need.affected.contact.phone %><br/>
-							<%= need.affected.contact.email %>
-						</address>	
+							<strong><%= need.affected.contact.address.address %></strong>
+						</address>
+						<ul class="short_descriptions">
+							<li><span>W</span> <%= need.work_requested || "none" %></li>
+							<li><span>O</span> <%= need.other_needs || "none" %></li>
+						</ul>
 					</td>
 			    <td><%= need.waiver ? "Y" : "" %></td>
 			    <td><%= need.wo_status ? truncate(need.wo_status.status, :length => 1, :omission => "") : "" %></td>
