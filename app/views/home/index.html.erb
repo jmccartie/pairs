@@ -1,16 +1,16 @@
 <div id="main">
 	<div class="container">
-		<%= image_tag("homeLogo.png", :class=>"homeLogo") %>
+		<%= image_tag("homeLogo.png", :class=>"animated fadeInDownBig homeLogo") %>
 		<div class="row">
-			<div class="span6 offset3">
+			<div class="span6 offset3 animated fadeInUpBig">
 				<a href="#" id="getHelp">GET HELP</a>
 				<a href="#" id="giveHelp">GIVE HELP</a>					
+				<div id="orTwitter">
+					<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>
+				</div><!-- span12 -->
 			</div><!-- span9 offset3 -->
 		</div><!-- row -->
 	</div><!-- container -->
-	<div id="orTwitter">
-		<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>
-	</div><!-- span12 -->
 </div><!-- main -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.3/jquery.backstretch.min.js"></script>
 <script>
