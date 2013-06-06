@@ -36,3 +36,6 @@ jQuery ->
 		
 	$('#comment_content').blur ->
 		$(this).removeClass('typing')
+	
+	offset = $('.need_wrapper h1').offset()
+	$(window).scrollTop offset.top - $('.need_wrapper h1').height() - 45

@@ -17,10 +17,10 @@
 		  <thead>
 			  <tr>
 					<th>Added</th>
-					<th>Zone</th>
+					<th>Z</th>
 					<th>Contact</th>
-					<th>Waiver</th>
-					<th>Status</th>
+					<th>W</th>
+					<th>S</th>
 			  </tr>
 		  </thead>
 		  <tbody>
@@ -37,7 +37,7 @@
 						</address>	
 					</td>
 			    <td><%= need.waiver ? "Y" : "" %></td>
-			    <td><%= need.wo_status ? need.wo_status.status : "" %></td>
+			    <td><%= need.wo_status ? truncate(need.wo_status.status, :length => 1, :omission => "") : "" %></td>
 			  </tr>
 				<% end %>
 			</tbody>

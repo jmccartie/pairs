@@ -1,6 +1,3 @@
-#main {
-
-}
 #main #map_wrapper {
 	position: absolute;
 	height: 50%;
@@ -14,6 +11,24 @@ div.map_container {
 #map {
 	height: 100%;
 }
+#main #map_wrapper {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body.needs.show #main {
+	position: relative;
+}
+body.needs.show #main #map_wrapper {
+	height: 25%;
+	min-height: 200px;
+}
+body.needs .map_space {
+	height: 25%;
+	min-height: 230px;
+}
 #main #needs_wrapper{position:absolute;bottom:0;width:100%;height:50%;background-color:white;-webkit-transition:height 0.3s ease-in-out;}
 #main.hideMap #needs_wrapper{height:80%;}
 #needs_toolbar{background-color:#000;color:white;overflow:hidden;height:46px;}
@@ -26,9 +41,9 @@ body.work_orders article{margin:15px;}
 
 /* Comments */
 #commentsWrapper{}
-#commentsWrapper .control-group{position:relative;width:480px;}
-#commentsWrapper .control-group input[name=commit]{position:absolute;right:0;}
-#comment_content{border:2px solid #ccc;padding:15px;height:20px;width:450px;-webkit-border-radius:5px;-webkit-transition:height .5s;}
+#commentsWrapper .control-group{position:relative;width:100%;}
+#commentsWrapper .control-group input[name=commit]{display:block;}
+#comment_content{border:2px solid #ccc;padding:5px 10px;height:35px;width:450px;-webkit-border-radius:5px;-webkit-transition:height .5s;}
 #comment_content.typing{height:60px;}
 
 @media print{
