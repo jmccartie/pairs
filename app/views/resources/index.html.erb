@@ -1,0 +1,21 @@
+<h1>Resources</h1>
+<p><%= link_to "New Resource", new_good_path, :class => "btn btn-primary" %></p>
+
+<% if @goods %>
+<ul>
+	<% @goods.each do |g| %>
+		<li><a href="<%= good_path(g) %>">
+			<h1><%= g.title %></h1>
+			<p><%= g.desc ? g.desc : "None" %></p>
+			<ul>
+				<li><strong>Available for Pick up?</strong> <%= g.pick_up ? "Yes" : "No" %></li>
+				<li><strong>Accepting Deliveries?</strong> <%= g.drop_off ? "Yes" : "No" %></li>
+				<li><strong>Inventory Status:</strong> <%= g.status %></li>
+			</ul>
+			</a>
+		</li>
+	<% end %>
+</ul>
+<% else %>
+	<p>You don't have any resources</p>
+<% end %>

@@ -10,6 +10,7 @@
 	<meta name="author" content="">
 	<%= stylesheet_link_tag "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag params[:controller] %>
 	<%= csrf_meta_tags %>
 	<%= yield(:head) %>
 	<link rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v1.0.0/mapbox.css"/>

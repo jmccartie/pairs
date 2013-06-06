@@ -5,3 +5,12 @@
 <p>
 	<%= @pod.desc %>
 </p>
+<%= @pod.hours_of_operation %>
+<%= @pod.length_of_operation %>
+<%= @pod.storage_capacity %>
+<%= @pod.percent_full %>
+
+<hr />
+
+<h3>Physical Goods</h3>
+<%= link_to 'New Good', new_admin_pod_good %>

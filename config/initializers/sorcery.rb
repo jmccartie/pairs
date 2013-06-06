@@ -108,7 +108,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = ENV["TWITTER_KEY"]
   config.twitter.secret = ENV["TWITTER_SECRET"]
   config.twitter.callback_url = ENV["TWITTER_CALLBACK"]
-  config.twitter.user_info_mapping = {:username => "screen_name"}
+  config.twitter.user_info_mapping = {:username => "screen_name", :profile_image_url => "profile_image_url"}
   #
   # config.facebook.key = ""
   # config.facebook.secret = ""

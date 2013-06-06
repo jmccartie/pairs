@@ -15,10 +15,16 @@
 	</div>
 	<% end %>
   </div>
+
+	<%= f.input :hours_of_operation %>
+	<%= f.input :length_of_operation %>
+	<%= f.input :storage_capacity %>
+	<%= f.input :percent_full %>
+	
   <div class="form-actions">
     <%= f.button :submit, :class=>"btn btn-primary" %>
 		<%= link_to 'Cancel', admin_pods_path, :class=>"btn"  %>
   </div>
 <% end %>
 
-<%= render 'needs/locate' %>
+<%= render '/needs/locate' %>

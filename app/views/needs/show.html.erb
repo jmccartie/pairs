@@ -40,6 +40,7 @@
     <p><%= @need.other_needs || "none" %></p>
     <hr />
     <div id="commentsWrapper">
+	<%= image_tag current_user.profile_image_url %>
 	  <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
         <div class="control-group">
           <%= f.text_area :content, :placeholder => "Leave a Comment" %>
@@ -50,6 +51,7 @@
 
       <% @comments.each do |comment| %>
         <blockquote class="comment">
+		  <%= image_tag comment.user.profile_image_url %>
           <p><%= comment.content %></p>
           <small>posted by <strong><%= comment.user.username %></strong> <%= time_ago_in_words comment.created_at %> ago</small>
           <% if can? :destroy, comment %>

@@ -16,7 +16,8 @@ class OauthsController < ApplicationController
 
   def callback
     provider = params[:provider]
-    if @user = login_from(provider)
+    if @user = login_from_twitter
+      # Login User
       remember_me!
       if current_user.profile_complete?
         redirect_back_or_to root_path, :notice => "Logged in from #{provider.titleize}!"
@@ -34,6 +35,27 @@ class OauthsController < ApplicationController
       rescue
         redirect_to root_path, :alert => "Failed to login from #{provider.titleize}!"
       end
+    end
+  end
+  
+  # Sorcery Hack
+  private
+  def login_from_twitter
+    provider = Config.send("twitter")
+    provider.process_callback(params,session)
+    user_hash = provider.get_user_hash
+    config = user_class.sorcery_config
+    attrs = user_attrs(provider.user_info_mapping, user_hash)
+    
+    if user = user_class.load_from_provider("twitter",user_hash[:uid].to_s)
+      user.update_attributes(attrs)
+      user.save
+      return_to_url = session[:return_to_url]
+      reset_session
+      session[:return_to_url] = return_to_url
+      auto_login(user)
+      after_login!(user)
+      user
     end
   end
 end

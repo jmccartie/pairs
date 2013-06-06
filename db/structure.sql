@@ -211,6 +211,43 @@ ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
 
 
 --
+-- Name: goods; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE goods (
+    id integer NOT NULL,
+    title character varying(255),
+    "desc" text,
+    category character varying(255),
+    pod_id integer,
+    pick_up boolean,
+    drop_off boolean,
+    status character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: goods_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE goods_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: goods_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE goods_id_seq OWNED BY goods.id;
+
+
+--
 -- Name: needs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -256,7 +293,8 @@ CREATE TABLE pods (
     properties hstore,
     notice text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    address_id integer
 );
 
 
@@ -305,7 +343,8 @@ CREATE TABLE users (
     last_activity_at timestamp without time zone,
     role character varying(255),
     remember_me_token character varying(255) DEFAULT NULL::character varying,
-    remember_me_token_expires_at timestamp without time zone
+    remember_me_token_expires_at timestamp without time zone,
+    profile_image_url character varying(255)
 );
 
 
@@ -466,6 +505,13 @@ ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY goods ALTER COLUMN id SET DEFAULT nextval('goods_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY needs ALTER COLUMN id SET DEFAULT nextval('needs_id_seq'::regclass);
 
 
@@ -542,6 +588,14 @@ ALTER TABLE ONLY comments
 
 ALTER TABLE ONLY contacts
     ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: goods_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY goods
+    ADD CONSTRAINT goods_pkey PRIMARY KEY (id);
 
 
 --
@@ -674,3 +728,9 @@ INSERT INTO schema_migrations (version) VALUES ('20130605040829');
 INSERT INTO schema_migrations (version) VALUES ('20130605133934');
 
 INSERT INTO schema_migrations (version) VALUES ('20130606020931');
+
+INSERT INTO schema_migrations (version) VALUES ('20130606065158');
+
+INSERT INTO schema_migrations (version) VALUES ('20130606070152');
+
+INSERT INTO schema_migrations (version) VALUES ('20130606165711');

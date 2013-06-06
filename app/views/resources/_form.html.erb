@@ -1,0 +1,8 @@
+<%= simple_form_for @good do |f| %>
+	<%= f.input :title %>
+	<%= f.input :desc %>
+	<%= f.input :status, collection: Good.statuses, label: "Inventory Level" %>
+	<%= f.input :pick_up, :label => "Available for pickup?" %>
+	<%= f.input :drop_off, :label => "Accepting deliveries?" %>
+	<%= f.submit :class => "btn btn-primary" %>
+<% end %>

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_one :contact, :as => :contactable
   has_many :comments
 
-  attr_accessible :email, :password, :password_confirmation, :authentications_attributes, :contact_attributes
+  attr_accessible :email, :password, :profile_image_url, :password_confirmation, :authentications_attributes, :contact_attributes
   accepts_nested_attributes_for :authentications, :contact
 
   # Sorcery

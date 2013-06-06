@@ -10,6 +10,7 @@ class Admin::PodsController < ApplicationController
   end
   
   def create
+    @pod.build_address
     respond_to do |format|
       if @pod.save
         format.html { redirect_to admin_pods_url, notice: 'Pod was successfully created.' }
@@ -29,8 +30,6 @@ class Admin::PodsController < ApplicationController
   end
   
   def update
-    @pod = Pod.find(params[:id])
-
     respond_to do |format|
       if @pod.update_attributes(params[:pod])
         format.html { redirect_to [:admin, @pod], notice: 'Work order was successfully updated.' }

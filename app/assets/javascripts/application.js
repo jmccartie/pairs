@@ -16,4 +16,5 @@
 //= require jquery.signaturepad.min
 //= require json2.min
 //= require jquery.dataTables.min
-//= require_tree .
+//= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps

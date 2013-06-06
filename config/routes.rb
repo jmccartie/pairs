@@ -8,6 +8,8 @@ Servemore::Application.routes.draw do
   resources :needs do
     resource :waiver
   end
+  
+  resources :resources, :as => "goods"
 
   # Login
   match "oauth/callback" => "oauths#callback"
