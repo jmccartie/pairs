@@ -16,7 +16,7 @@
 		<table id="needs_table" class="table">
 		  <thead>
 			  <tr>
-					<th>Date</th>
+					<th>Added</th>
 					<th>Zone</th>
 					<th>Contact</th>
 					<th>Waiver</th>
@@ -26,7 +26,7 @@
 		  <tbody>
 				<% @needs.each do |need| %>
 			  <tr onclick="window.location = '<%= need_path(need) %>';" class="<%= need.wo_status ? need.wo_status.style : '' %>">
-					<td><%= need.created_at.strftime('%m/%d/%y') %></td>
+					<td><%= time_ago_in_words(need.created_at) %> ago</td>
 			    <td><%= need.zone ? need.zone.zone : "?" %></td>
 			    <td>
 						<address>

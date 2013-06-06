@@ -891,8 +891,8 @@ body { padding-top: 40px;}
 .add-new-wo:focus,
 .add-new-wo:hover{width:45%;color:#fff;background:#5aaa19;line-height:46px;float:right;font-size:14px;text-transform:uppercase;text-align:center;font-weight:bold;text-decoration:none;}
 
-#map {height:300px;width:100%;max-width:100%;display:block;}
-.tallMap #map {height:500px;}
+#map {width:100%;max-width:100%;display:block;}
+.tallMap #map {}
 /* Page Headers */
 .page-header .pull-right {margin-top:-10px;}
 .breadcrumb li a,
