@@ -2,14 +2,27 @@
 	<h1>Pods</h1>
 	<%= link_to 'New Pod', new_admin_pod_path, :class=>'btn btn-primary' %>
 </div><!-- page-header -->	
+<%= form_tag import_admin_pods_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
 <% if @pods %>
 <table class="table table-striped">
   <tr>
     <th>Title</th>
+    <th>Location</th>
+    <th></th>
   </tr>
 <% @pods.each do |p| %>
   <tr>
 	<td><%= link_to p.title, [:admin, p] %></td>
+	<td>
+		<% if p.address %>
+		<%= link_to p.address.address, [:admin, p] %>
+		<% end %>
+	</td>
+	<td><%= link_to "X", [:admin, p], :method => :delete %></td>
   </tr>
 <% end %>
 </table>

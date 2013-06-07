@@ -294,7 +294,8 @@ CREATE TABLE pods (
     notice text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    address_id integer
+    address_id integer,
+    notes text
 );
 
 
@@ -734,3 +735,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130606065158');
 INSERT INTO schema_migrations (version) VALUES ('20130606070152');
 
 INSERT INTO schema_migrations (version) VALUES ('20130606165711');
+
+INSERT INTO schema_migrations (version) VALUES ('20130607044443');

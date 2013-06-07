@@ -37,4 +37,15 @@ class Admin::PodsController < ApplicationController
       end
     end
   end
+  
+  def destroy
+    @pod.destroy
+    redirect_to admin_pods_url
+  end
+  
+  def import
+    Pod.import(params[:file])
+    # @file = params[:file]
+    redirect_to admin_pods_url
+  end
 end

@@ -18,7 +18,9 @@ Servemore::Application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :pods
+    resources :pods do
+      collection { post :import }
+    end
     resources :zones
     resources :wo_statuses
     resources :roles, :except => [:destroy]

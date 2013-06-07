@@ -1,0 +1,13 @@
+<h1>Import</h1>
+
+<% CSV.foreach(@file.path, headers: true) do |row| %>
+  <% @row = row.to_hash %><br/>
+  Title: <%= @row['Organization'] %><br/>
+  Desc: <%= @row['Affiliated/Sponsoring Agencies'] %><br/>
+  Address: <%= "#{@row['Address']}, #{@row['City']}, #{@row['State']}, #{@row['Zip Code']}" %><br/>
+Hours of Operation: <%= @row['Daily Hours of Operation'] %><br/>
+Length of Operation: <%= @row['Anticipated Length of Operation'] %><br/>
+Donation Area Size: <%= @row['Size of Donations Housing Area'] %><br/>
+Percent Full: <%= @row['Percent Full'] %><br/>
+Notes: <%= @row['Notes'] %><br/>
+<% end %>
