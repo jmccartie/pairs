@@ -1,17 +1,18 @@
 <div class="container">
-	<div class="row">
-		<div class="span12">
-			<h1>Hello <%= current_user.username %> <small><%= link_to raw('Logout <i class="icon-signout"></i>'), logout_path %></small></h1>
-			<%= image_tag current_user.profile_image_url %>
-			<% if current_user.profile_complete? %>
-			<p><%= current_user.contact.first_name %> <%= current_user.contact.last_name %></p>
-			<p><%= current_user.contact.phone %></p>
-			<p><%= current_user.contact.email %></p>
-			<p><%= current_user.contact.address ? current_user.contact.address.address : "" %></p>
-			<%= link_to "Edit Profile", edit_my_account_profile_path, :class => "btn btn-primary" %>
-			<% else %>
-			<p>Well this is awkward...We don't seem to know your name. <%= link_to "Finish your profile here.", edit_my_account_profile_path %></p>
-			<% end %>	
-		</div><!-- span12 -->
-	</div><!-- row -->
+	<div class="page-header">
+		<h1><%= current_user.username %> Profile</h1>
+		<%= image_tag current_user.profile_image_url %>
+		<%= link_to raw('Logout <i class="icon-signout"></i>'), logout_path, :class=>"btn btn-small" %>
+	</div><!-- page-header -->
+	<% if current_user.profile_complete? %>
+	<address>
+		<strong><%= current_user.contact.first_name %> <%= current_user.contact.last_name %></strong><br/>
+		<%= current_user.contact.phone %><br/>
+		<%= current_user.contact.email %><br/>
+		<%= current_user.contact.address ? current_user.contact.address.address : "" %>
+	</address>	
+	<%= link_to "Edit Profile", edit_my_account_profile_path, :class => "btn btn-primary" %>
+	<% else %>
+	<p>Well this is awkward...We don't seem to know your name. <%= link_to "Finish your profile here.", edit_my_account_profile_path %></p>
+	<% end %>
 </div><!-- container -->
