@@ -1,0 +1,47 @@
+<div id="map_wrapper">
+	<%= gmaps(:map_options => { :raw => '{ }', "auto_zoom" => false, "zoom" => 17 },
+	      :kml => { :data => '[{url: "http://aequ.com/kml/mooredamage.kml", options: {clickable: false, preserveViewport: true }},{url: "http://aequ.com/kml/workzones.kml", options: {clickable: false, preserveViewport: true }}]' },
+	    :markers     => { "data" => @map }
+	)
+	%>
+</div><!-- map_wrapper -->
+<div class="map_space"></div>
+<div id="main" class="need_wrapper">
+  <div class="container">
+    <a class="backLink" href="<%= pods_path %>" title="Back to Pods"><i class="icon-angle-left"></i> Back to Pods</a>
+    <div class="page-header clearfix">
+      <h1 class="pull-left"><%= @pod.title %></h1>
+      <div class="btn-group pull-right">
+        <%= link_to raw('<i class="icon-print"></i> Print'), "javascript:window.print()", :class => "btn" %>
+      </div>
+    </div><!-- page-header -->
+	<p>
+		<%= @pod.desc %>
+	</p>
+	<ul>
+	<li><strong>Hours:</strong> <%= @pod.hours_of_operation %></li>
+	<li><strong>Length of Operation:</strong> <%= @pod.length_of_operation %></li>
+	<li><strong>Storage Capacity:</strong> <%= @pod.storage_capacity %></li>
+	<li><strong>Percent Full:</strong> <%= @pod.percent_full %></li>
+	</ul>
+    <address>
+      <strong><%= @pod.address.address %></strong><br/>
+      <%= @pod.contact ? @pod.contact.phone : "none" %><br/>
+      <%= @pod.contact ? @pod.contact.email : "none" %>
+	</address>
+    <hr/>
+    <h4>Notes</h4>
+	<p>Notes</p>
+    <hr />
+    <h4>Goods</h4>
+	<p>Goods</p>
+    <hr />
+    <h4>Comments</h4>
+	<p>Comments</p>
+    <hr />
+
+  </div><!-- container -->
+</div><!-- main -->
+
+
+

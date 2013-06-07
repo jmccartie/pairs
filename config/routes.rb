@@ -9,7 +9,9 @@ Servemore::Application.routes.draw do
     resource :waiver
   end
   
-  resources :resources, :as => "goods"
+  resources :resources, :as => "goods" do
+    collection { resources :pods }
+  end
 
   # Login
   match "oauth/callback" => "oauths#callback"

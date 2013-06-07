@@ -16,6 +16,10 @@ class Pod < ActiveRecord::Base
    "#{self.latitude}, #{self.longitude}"
   end
   
+  def gmaps4rails_infowindow
+    "<a href='#{Rails.application.routes.url_helpers.pod_path(self)}'>#{self.title}</a>"
+  end
+  
   def self.import(file)
      CSV.foreach(file.path, headers: true) do |row|
        p = Pod.new
