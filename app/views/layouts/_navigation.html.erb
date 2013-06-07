@@ -4,7 +4,7 @@
 	<ul class="nav pull-right">
 		<% if current_user %>
 	  <li class='<%= active_class("needs") %>'><%= link_to('Needs', needs_url) %></li>
-		<li class='<%= active_class("resources") %>'><%= link_to('Resources', needs_url) %></li>
+		<li class='<%= active_class("resources") %>'><%= link_to('Resources', goods_url) %></li>
 		<li class='<%= active_class("volunteers") %>'><%= link_to('Volunteers', needs_url) %></li>
 		<!-- Need if admin tag here -->
 		<li class='<%= active_class("dashboard") %>'><%= link_to('Admin', admin_dashboard_url) %></li>

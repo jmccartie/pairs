@@ -1,4 +1,6 @@
 <%= simple_form_for @good do |f| %>
+	<%= f.association :pod %>
+	<%= f.input :category, collection: Good.categories %>
 	<%= f.input :title %>
 	<%= f.input :desc %>
 	<%= f.input :status, collection: Good.statuses, label: "Inventory Level" %>
