@@ -10,14 +10,11 @@ class Admin::PodsController < ApplicationController
   end
   
   def create
-    @pod.build_address
     respond_to do |format|
       if @pod.save
         format.html { redirect_to admin_pods_url, notice: 'Pod was successfully created.' }
-        format.json { render json: @pod, status: :created, location: @pod }
       else
         format.html { render action: "new" }
-        format.json { render json: @pod.errors, status: :unprocessable_entity }
       end
     end
   end

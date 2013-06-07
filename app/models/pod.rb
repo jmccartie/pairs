@@ -1,5 +1,6 @@
 class Pod < ActiveRecord::Base
   attr_accessible :desc, :notice, :properties, :title, :address_id, :address_attributes, :properties, :hours_of_operation, :length_of_operation, :storage_capacity, :percent_full
+  serialize :properties, ActiveRecord::Coders::Hstore
   hstore_accessor :properties, :hours_of_operation, :length_of_operation, :storage_capacity, :percent_full
   
   delegate :latitude, to: :address
