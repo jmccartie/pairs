@@ -4,7 +4,7 @@
 jQuery ->
 	
 	calcDataTableHeight = ->
-		return $('#needs_wrapper').height() - 80
+		return $('#needs_wrapper').height() - 85
 
 	oTable = $('#needs_table').dataTable({
 		"sScrollY": calcDataTableHeight(),
