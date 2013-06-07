@@ -1,26 +1,20 @@
-<div id="main">
-	<div class="container">
-		<%= image_tag("homeLogo.png", :class=>"animated fadeInDownBig homeLogo") %>
-		<div class="row">
-			<div class="span6 offset3 animated fadeInUpBig">
-				<a href="#" id="getHelp">GET HELP</a>
-				<a href="#" id="giveHelp">GIVE HELP</a>					
-				<div id="orTwitter">
-					<% if current_user %>
-						<%= link_to "Go to Needs", needs_path %>
-					<% else %>
-						<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>
-					<% end %>
-				</div><!-- span12 -->
-			</div><!-- span9 offset3 -->
-		</div><!-- row -->
-	</div><!-- container -->
-</div><!-- main -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.3/jquery.backstretch.min.js"></script>
-<script>
-	(function($){
-		$(function(){
-			//$.backstretch("/images/splash.png");
-		});
-	})(jQuery)
-</script>
+<div class="container">
+	<%= image_tag("homeLogo.png", :class=>"animated fadeInDownBig homeLogo") %>
+	<div class="row">
+		<% if current_user %>
+		<div class="span12 animated fadeInUpBig">
+			<a href="/needs" id="needsButton">Needs</a>
+			<a href="/resources" id="resourcesButton">Resources</a>
+			<a href="/my_account/profile" id="accountButton">Account</a>
+		<% else %>
+		<div class="span6 offset3 animated fadeInUpBig">
+			<a href="#" id="getHelp">GET HELP</a>
+			<a href="#" id="giveHelp">GIVE HELP</a>					
+			<div id="orTwitter">
+					<%= link_to "Go to Needs", needs_path %>
+					<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>
+			</div><!-- span12 -->
+		<% end %>
+		</div><!-- span9 offset3 -->
+	</div><!-- row -->
+</div><!-- container -->
