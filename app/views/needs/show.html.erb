@@ -8,13 +8,9 @@
 <div class="map_space"></div>
 <div id="main" class="need_wrapper">
   <div class="container">
-    <div class="page-header">
-      <ul class="breadcrumb">
-        <li><a href="/">Home</a> <span class="divider">/</span></li>
-        <li><a href="/needs">Needs</a> <span class="divider">/</span></li>
-        <li class="active"><%= @need.affected.contact.name %></b></li>
-      </ul>
-      <h1><%= @need.affected.contact.address.address %></h1>
+    <a class="backLink" href="/needs" title="Back to Needs"><i class="icon-angle-left"></i> Back to Needs</a>
+    <div class="page-header clearfix">
+      <h1 class="pull-left"><%= @need.affected.contact.address.address %></h1>
       <div class="btn-group pull-right">
         <% if @need.waiver %>
         <%= link_to raw('<i class="icon-file"></i> View Waiver'), need_waiver_path(@need), :class => "btn" %>
@@ -24,14 +20,16 @@
           <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_need_path(@need), :class => "btn" %>
         <%= link_to raw('<i class="icon-print"></i> Print'), "javascript:window.print()", :class => "btn" %>
       </div>
-      <span class="badge badge-important">Zone <%= @need.zone ? @need.zone.zone : "?"  %></span>
-      <span class="badge <%= @need.wo_status ? "badge-"+@need.wo_status.style : ""  %>"><%= @need.wo_status ? @need.wo_status.status : "?"  %></span>
     </div><!-- page-header -->
-    <p>
-      <b><%= @need.affected.contact.name %></b><br/>
+		<p>
+			<span class="badge badge-important">Zone <%= @need.zone ? @need.zone.zone : "?"  %></span>
+			<span class="badge <%= @need.wo_status ? "badge-"+@need.wo_status.style : ""  %>"><%= @need.wo_status ? @need.wo_status.status : "?"  %></span>
+		</p>	
+    <address>
+      <strong><%= @need.affected.contact.name %></strong><br/>
       <%= @need.affected.contact.phone %><br/>
       <%= @need.affected.contact.email %>
-    </p>
+		</address>
     <hr/>
     <h4>Work Requested</h4>
     <p><%= @need.work_requested || "none" %></p>
@@ -40,25 +38,24 @@
     <p><%= @need.other_needs || "none" %></p>
     <hr />
     <div id="commentsWrapper">
-	<%= image_tag current_user.profile_image_url %>
-	  <%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
-        <div class="control-group">
-          <%= f.text_area :content, :placeholder => "Leave a Comment" %>
-		  <%= f.submit "Submit", :value=>"Comment", :class=>"btn btn-primary" %>
+			<%= image_tag current_user.profile_image_url %>
+	 	 	<%= form_for [Comment.new], url: create_comment_path("need", @need) do |f| %>
+				<div class="control-group">
+					<%= f.text_area :content, :placeholder => "Leave a Comment" %>
+					<%= f.submit "Submit", :value=>"Comment", :class=>"btn btn-primary" %>
         </div>
       <% end %>
       <h4>Comments</h4>
-
       <% @comments.each do |comment| %>
-        <blockquote class="comment">
-		  <%= image_tag comment.user.profile_image_url %>
-          <p><%= comment.content %></p>
-          <small>posted by <strong><%= comment.user.username %></strong> <%= time_ago_in_words comment.created_at %> ago</small>
-          <% if can? :destroy, comment %>
-              <%= link_to "Delete", comment_path(comment), method: :delete, confirm: "Are you sure?" %>
-            <% end %>
-          <hr/>
+        <blockquote class="comment clearfix">
+					<%= image_tag comment.user.profile_image_url, :class=>"avatar" %>
+					<p><%= comment.content %></p>
+					<small>posted by <strong><%= comment.user.username %></strong> <%= time_ago_in_words comment.created_at %> ago</small>
+					<% if can? :destroy, comment %>
+					<%= link_to "Delete", comment_path(comment), method: :delete, confirm: "Are you sure?" %>
+					<% end %>         	
         </blockquote>
+				<hr/> 
       <% end %>
     </div><!-- commentsWrapper -->
   </div><!-- container -->

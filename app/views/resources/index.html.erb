@@ -1,26 +1,26 @@
-<h1>Resources</h1>
-<p><%= link_to "New Resource", new_good_path, :class => "btn btn-primary" %></p>
-
-<% if @goods %>
-<ul id="resource_list">
-	<% @goods.each do |g| %>
-		<li class="<%= g.category.to_s.delete(' ') %>">
-			<div class="resource">
-
-			<a href="<%= good_path(g) %>" class="resource_link">
-			<h4><%= g.title %></h4>
-			<p class="resource_description"><%= g.desc ? g.desc : "None" %></p>
-			
-			<div class="resource_inventory <%= g.status.to_s.delete(' ') %>"><%= g.status %></div>
-			<div class="resource_category"><%= g.category %></div>
-			<div class="resource_status"><i class="icon-circle-arrow-down<%= g.drop_off ? " active" : "" %>"></i> <i class="icon-circle-arrow-up<%= g.pick_up ? " active" : "" %>"></i></div>
-			<div class="resource_location"><i class="icon-building"></i> <%= g.pod ? g.pod.title : "?" %></div>
-			
-			</a>
-			</div>
-		</li>
+<div class="container">
+	<div class="page-header clearfix">
+		<h1 class="pull-left">Resources</h1>
+		<%= link_to "Add Resource", new_good_path, :class => "btn btn-primary pull-right" %>
+	</div><!-- page-header -->
+	<% if @goods %>
+	<ul id="resource_list">
+		<% @goods.each do |g| %>
+			<li class="<%= g.category.to_s.delete(' ') %>">
+				<div class="resource">
+					<a href="<%= good_path(g) %>" class="resource_link">
+						<h4><%= g.title %></h4>
+						<p class="resource_description"><%= g.desc ? g.desc : "None" %></p>
+						<span class="resource_inventory <%= g.status.to_s.delete(' ') %>"><%= g.status %></span>
+						<span class="resource_category"><%= g.category %></span>
+						<span class="resource_status"><i class="icon-circle-arrow-down<%= g.drop_off ? " active" : "" %>"></i> <i class="icon-circle-arrow-up<%= g.pick_up ? " active" : "" %>"></i></span>
+						<span class="resource_location"><i class="icon-building"></i> <%= g.pod ? g.pod.title : "?" %></span>
+					</a>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+	<% else %>
+		<p>Currently there are not any resources.</p>
 	<% end %>
-</ul>
-<% else %>
-	<p>You don't have any resources</p>
-<% end %>
+</div><!-- container -->

@@ -15,39 +15,31 @@ body.work_orders article{margin:15px;}
 .dataTable{margin-bottom:0;}
 #needs_table_wrapper table thead{color:#333;background-image:-webkit-gradient(linear,left bottom,left top,from(#f0f0f0),to(#dbdbdb));background-image:-moz-linear-gradient(90deg,#f0f0f0 0%,#dbdbdb 100%);border-bottom:1px solid #666;text-shadow:0 -1px 0 rgba(0,0,0,0.25),0 1px 0 rgba(255,255,255,0.35);}
 #needs_table_wrapper table thead th{border:0;border-left:1px solid rgba(255,255,255,.1);}
-/* Needs Index Items */
-body.needs.index address{margin:0;}
-ul.short_descriptions{margin:0;padding:0;}
-ul.short_descriptions li{margin:0;padding:0;list-style:none;font-size:80%;text-transform:capitalize;text-overflow:ellipsis;height:18px;overflow:hidden;font-style:italic;}
-ul.short_descriptions li span:first-child{font-weight:bold;text-transform:uppercase;font-size:60%;color:#333;display:inline-block;width:14px;text-align:center;}
-/* Comments */
-#commentsWrapper{}
-#commentsWrapper .control-group{position:relative;width:100%;}
-#commentsWrapper .control-group input[name=commit]{display:block;}
-#comment_content{border:1px solid #ccc;padding:5px 10px;height:40px;width:100%;max-width:450px;-webkit-border-radius:5px;-webkit-transition:height .25s;margin:10px 0;}
-#comment_content.typing{height:100px;}
 #needs_toolbar * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-
 .add-new-wo,
 .add-new-wo:link,
 .add-new-wo:visited,
 .add-new-wo:focus,
 .add-new-wo:hover{width:45%;color:#fff;background:#5aaa19;line-height:46px;float:right;font-size:14px;text-transform:uppercase;text-align:center;font-weight:bold;text-decoration:none;}
 #map {width:100%;max-width:100%;display:block;}
-/* Page Headers */
-.page-header .pull-right {margin-top:-10px;}
-.breadcrumb li a,
-.breadcrumb li a:link,
-.breadcrumb li a:visited {color:#666;}
-.breadcrumb li a:focus,
-.breadcrumb li a:hover,
-.breadcrumb li a:active {color:#000;}
 /* Maps CSS */
 #showHideMap,
 #showHideMap:link,
 #showHideMap:visited,
 #showHideMap:focus,
 #showHideMap:hover {width:10%;text-align:center;color:#fff;height:46px;line-height:46px;float:left;margin:0;text-decoration:none;font-weight:bold;}
+/* Needs Index Items */
+body.needs.index address{margin:0;}
+ul.short_descriptions{margin:0;padding:0;}
+ul.short_descriptions li{margin:0;padding:0;list-style:none;font-size:80%;text-transform:capitalize;text-overflow:ellipsis;height:18px;overflow:hidden;font-style:italic;}
+ul.short_descriptions li span:first-child{font-weight:bold;text-transform:uppercase;font-size:60%;color:#333;display:inline-block;width:14px;text-align:center;}
+/* Comments */
+#commentsWrapper{margin:20px 0;}
+#commentsWrapper .control-group{position:relative;width:100%;}
+#commentsWrapper .control-group input[name=commit]{display:block;}
+#comment_content{border:1px solid #ccc;padding:5px 10px;height:40px;width:100%;max-width:450px;-webkit-border-radius:5px;-webkit-transition:height .25s;margin:10px 0;}
+#comment_content.typing{height:100px;}
+.avatar {float:left;margin-right:10px;width:30px;height:30px;}
 
 @media (max-width: 767px) {
 	#needs_toolbar{height:auto !important;}

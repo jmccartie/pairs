@@ -1,12 +1,17 @@
-<h1><%= @good.title %></h1>
-<p><%= @good.desc ? @good.desc : "None" %></p>
-<ul>
-	<li><strong>Category:</strong> <%= @good.category %></li>
-	<li><strong>Available for Pick up?</strong> <%= @good.pick_up ? "Yes" : "No" %></li>
-	<li><strong>Accepting Deliveries?</strong> <%= @good.drop_off ? "Yes" : "No" %></li>
-	<li><strong>Inventory Status:</strong> <%= @good.status %></li>
-</ul>
-<p>
-	<%= @good.pod ? @good.pod.title : "?" %>
-</p>
-<p><%= link_to "Edit", edit_good_path(@good), :class => "btn" %></p>
+<div class="container">
+	<div class="page-header">
+		<a class="backLink" href="/resources"><i class="icon-angle-left"> Back to Resources</i></a>
+		<h1><%= @good.title %></h1>
+	</div><!-- page-header -->
+	<p><%= @good.desc ? @good.desc : "None" %></p>
+	<ul>
+		<li><strong>Category:</strong> <%= @good.category %></li>
+		<li><strong>Available for Pick up?</strong> <%= @good.pick_up ? "Yes" : "No" %></li>
+		<li><strong>Accepting Deliveries?</strong> <%= @good.drop_off ? "Yes" : "No" %></li>
+		<li><strong>Inventory Status:</strong> <%= @good.status %></li>
+	</ul>
+	<p>
+		<%= @good.pod ? @good.pod.title : "?" %>
+	</p>
+	<p><%= link_to "Edit", edit_good_path(@good), :class => "btn" %></p>
+</div><!-- container -->
