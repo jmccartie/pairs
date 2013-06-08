@@ -12,11 +12,11 @@ class Need < ActiveRecord::Base
   acts_as_gmappable :process_geocoding => false
 
   def latitude
-    "#{self.affected.contact.address.latitude}"
+    "#{self.affected.contact.address.latitude}" if self.affected
   end
 
   def longitude
-    "#{self.affected.contact.address.longitude}"
+    "#{self.affected.contact.address.longitude}" if self.affected
   end
 
   def gmaps4rails_infowindow

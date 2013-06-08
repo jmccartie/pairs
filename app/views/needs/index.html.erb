@@ -30,7 +30,7 @@
 			    <td><%= need.zone ? need.zone.zone : "?" %></td>
 			    <td>
 						<address>
-							<strong><%= need.affected.contact.address.address %></strong>
+							<strong><%= need.affected ? need.affected.contact.address.address : "none" %></strong>
 						</address>
 						<ul class="short_descriptions">
 							<li><span>W</span> <%= need.work_requested || "none" %></li>
