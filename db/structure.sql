@@ -259,7 +259,8 @@ CREATE TABLE needs (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     work_requested text,
-    other_needs text
+    other_needs text,
+    notes text
 );
 
 
@@ -680,6 +681,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130526051426');
 
 INSERT INTO schema_migrations (version) VALUES ('20130526051732');
 
+INSERT INTO schema_migrations (version) VALUES ('20130526051846');
+
 INSERT INTO schema_migrations (version) VALUES ('20130526052953');
 
 INSERT INTO schema_migrations (version) VALUES ('20130530205312');
@@ -691,6 +694,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130530210129');
 INSERT INTO schema_migrations (version) VALUES ('20130530210407');
 
 INSERT INTO schema_migrations (version) VALUES ('20130530224952');
+
+INSERT INTO schema_migrations (version) VALUES ('20130531010737');
 
 INSERT INTO schema_migrations (version) VALUES ('20130531011000');
 
@@ -733,3 +738,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130606070152');
 INSERT INTO schema_migrations (version) VALUES ('20130606165711');
 
 INSERT INTO schema_migrations (version) VALUES ('20130607044443');
+
+INSERT INTO schema_migrations (version) VALUES ('20130608083157');

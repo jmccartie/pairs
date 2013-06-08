@@ -24,6 +24,9 @@ Servemore::Application.routes.draw do
       collection { post :import }
     end
     resources :zones
+    resources :needs do
+      collection { post :import }
+    end
     resources :wo_statuses
     resources :roles, :except => [:destroy]
     get '/' => 'dashboard#index', :as => 'dashboard'

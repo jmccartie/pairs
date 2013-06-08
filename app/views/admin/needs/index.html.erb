@@ -1,0 +1,27 @@
+<div id="main">		
+	<div class="page-header">
+		<h1>Needs</h1>
+	</div><!-- page-header -->
+	<%= form_tag import_admin_needs_path, multipart: true do %>
+	  <%= file_field_tag :file %>
+	  <%= submit_tag "Import" %>
+	<% end %>
+	<table id="needs_table" class="table table-stripped">
+	  <thead>
+		  <tr>
+				<th>Date</th>
+				<th>Address</th>
+				<th>Status</th>
+		  </tr>
+	  </thead>
+	  <tbody>
+			<% @needs.each do |n| %>
+		  <tr>
+		  	<td><%= n.created_at %></td>
+			<td><%= n.affected ? n.affected.contact.address.address : "None" %></td>
+			<td><%= n.wo_status ? n.wo_status.status : "None" %></td>
+		  </tr>
+			<% end %>
+	  </tbody>
+	</table>
+</div><!-- main -->
