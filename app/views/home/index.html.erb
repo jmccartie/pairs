@@ -5,11 +5,11 @@
 		<div class="span12 animated fadeInUpBig">
 			<a href="/needs" id="needsButton">Needs</a>
 			<a href="/resources" id="resourcesButton">Resources</a>
-			<a href="/my_account/profile" id="accountButton">Account</a>
+			<a href="/account/profile" id="accountButton">Account</a>
 		<% else %>
 		<div class="span6 offset3 animated fadeInUpBig">
 			<a href="#" id="getHelp">GET HELP</a>
-			<a href="#" id="giveHelp">GIVE HELP</a>					
+			<a href="#" id="giveHelp">GIVE HELP</a>
 			<div id="orTwitter">
 					<%= link_to "Go to Needs", needs_path %>
 					<%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %>

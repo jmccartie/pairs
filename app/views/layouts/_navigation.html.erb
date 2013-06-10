@@ -9,7 +9,7 @@
 		<!-- Need if admin tag here -->
 		<li class='<%= active_class("dashboard") %>'><%= link_to('Admin', admin_dashboard_url) %></li>
 		<!-- Need if admin tag here -->
-		<li id="profileLink" class='<%= active_class("profile") %>'><a href="<%= my_account_profile_path %>"><%= image_tag current_user.profile_image_url %> <%= current_user.username %></a></li>
+		<li id="profileLink" class='<%= active_class("profile") %>'><a href="<%= account_profile_path %>"><%= image_tag current_user.profile_image_url %> <%= current_user.username %></a></li>
 		<% else %>
 		<li><%= link_to raw('<i class="icon-twitter"></i> Login with Twitter'), auth_at_provider_path(:provider => :twitter) %></li>
 		<% end %>

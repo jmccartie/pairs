@@ -4,7 +4,7 @@
 			<div class="page-header">
 				<h1>Edit Profile</h1>
 			</div><!-- page-header -->
-			<%= simple_form_for @user, :url => my_account_profile_path do |f| %>
+			<%= simple_form_for @user, :url => account_profile_path do |f| %>
 				<%= f.simple_fields_for :contact do |c| %>
 					<%= c.input :first_name %>
 					<%= c.input :last_name %>
@@ -27,31 +27,31 @@
 			  </div>
 			<% end %>
 
-			<script>  
-      jQuery(window).ready(function(){  
-          jQuery("#locate-me").click(initiate_geolocation);  
-      });  
-      function initiate_geolocation() {  
-          navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+			<script>
+      jQuery(window).ready(function(){
+          jQuery("#locate-me").click(initiate_geolocation);
+      });
+      function initiate_geolocation() {
+          navigator.geolocation.getCurrentPosition(handle_geolocation_query);
       }
-			function handle_errors(error)  
-			        {  
-			            switch(error.code)  
-			            {  
-			                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
-			                break;  
-			                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
-			                break;  
-			                case error.TIMEOUT: alert("retrieving position timed out");  
-			                break;  
-			                default: alert("unknown error");  
-			                break;  
-			            }  
+			function handle_errors(error)
+			        {
+			            switch(error.code)
+			            {
+			                case error.PERMISSION_DENIED: alert("user did not share geolocation data");
+			                break;
+			                case error.POSITION_UNAVAILABLE: alert("could not detect current position");
+			                break;
+			                case error.TIMEOUT: alert("retrieving position timed out");
+			                break;
+			                default: alert("unknown error");
+			                break;
+			            }
 			        }
 	        function handle_geolocation_query(position){
 				$.get("/geocode", { lat: position.coords.latitude, long: position.coords.longitude }).done(function(data) {});
-	        }  
+	        }
 	    </script>
 			</div>
 	</div>
-</div>	
+</div>

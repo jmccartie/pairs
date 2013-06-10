@@ -47,7 +47,7 @@ Servemore::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-  config.assets.precompile += ['admin/*.js', 'home.js', 'my_account/profile.js', 'needs.js', "oauths.js", "resources.js", "waivers.js", "needs.js", "admin/needs.js"]
+  config.assets.precompile += ['admin/*.js', 'home.js', 'account/profile.js', 'needs.js', "oauths.js", "resources.js", "waivers.js", "needs.js", "admin/needs.js"]
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

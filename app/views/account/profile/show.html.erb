@@ -10,9 +10,9 @@
 		<%= current_user.contact.phone %><br/>
 		<%= current_user.contact.email %><br/>
 		<%= current_user.contact.address ? current_user.contact.address.address : "" %>
-	</address>	
-	<%= link_to "Edit Profile", edit_my_account_profile_path, :class => "btn btn-primary" %>
+	</address>
+	<%= link_to "Edit Profile", edit_account_profile_path, :class => "btn btn-primary" %>
 	<% else %>
-	<p>Well this is awkward...We don't seem to know your name. <%= link_to "Finish your profile here.", edit_my_account_profile_path %></p>
+	<p>Well this is awkward...We don't seem to know your name. <%= link_to "Finish your profile here.", edit_account_profile_path %></p>
 	<% end %>
 </div><!-- container -->

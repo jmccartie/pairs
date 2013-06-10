@@ -8,7 +8,7 @@ Servemore::Application.routes.draw do
   resources :needs do
     resource :waiver
   end
-  
+
   resources :resources, :as => "goods" do
     collection { resources :pods }
   end
@@ -32,7 +32,7 @@ Servemore::Application.routes.draw do
     get '/' => 'dashboard#index', :as => 'dashboard'
   end
 
-  namespace :my_account do
+  namespace :account do
     resource "profile", :controller => "profile", :only => [:show, :edit, :update]
   end
 
